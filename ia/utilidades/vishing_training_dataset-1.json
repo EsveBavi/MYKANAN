@@ -1,0 +1,1621 @@
+{
+  "dataset_info": {
+    "name": "Vishing Detection Training Dataset",
+    "description": "100 conversaciones telefónicas para entrenamiento de agente IA de detección de phishing por voz (vishing). 50 fraudulentas y 50 legítimas.",
+    "version": "1.0",
+    "total_conversations": 100,
+    "fraudulent": 50,
+    "legitimate": 50,
+    "language": "es",
+    "categories": {
+      "fraudulent_types": [
+        "bancario", "soporte_tecnico", "premio_loteria", "gobierno_impuestos",
+        "seguro_medico", "crypto", "urgencia_familiar", "proveedor_servicios"
+      ],
+      "legitimate_types": [
+        "banco_real", "soporte_real", "servicio_al_cliente", "confirmacion_cita",
+        "cobranza_legitima", "encuesta", "notificacion_servicio"
+      ]
+    }
+  },
+  "conversations": [
+    {
+      "id": "FRAUD_001",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.97,
+      "red_flags": ["urgencia_artificial", "solicitud_datos_sensibles", "amenaza_bloqueo_cuenta", "numero_desconocido"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le llamo del departamento de seguridad de su banco. Hemos detectado actividad sospechosa en su cuenta."},
+        {"speaker": "cliente", "text": "Ah, ¿sí? ¿De qué banco me llama?"},
+        {"speaker": "agente", "text": "De BancoMex. Es urgente que verifiquemos su identidad ahora mismo o tendremos que bloquear su cuenta preventivamente."},
+        {"speaker": "cliente", "text": "¿Y por qué me piden mis datos por teléfono?"},
+        {"speaker": "agente", "text": "Es el protocolo de seguridad. Necesito su número de tarjeta, fecha de vencimiento y el código CVV para confirmar que usted es el titular legítimo."},
+        {"speaker": "cliente", "text": "No sé si deba darte esa información así..."},
+        {"speaker": "agente", "text": "Señor/a, si no lo verificamos en los próximos 5 minutos, su cuenta quedará bloqueada automáticamente y tardará 72 horas en reactivarse. ¿Prefiere eso?"}
+      ]
+    },
+    {
+      "id": "FRAUD_002",
+      "label": "fraudulenta",
+      "type": "soporte_tecnico",
+      "risk_score": 0.95,
+      "red_flags": ["acceso_remoto_solicitado", "pago_adelantado", "urgencia_artificial", "empresa_falsa"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le llamo de soporte técnico de Microsoft. Hemos detectado que su computadora tiene un virus grave."},
+        {"speaker": "cliente", "text": "¿Cómo saben que tengo un virus?"},
+        {"speaker": "agente", "text": "Nuestros servidores registran errores críticos desde su IP. Su computadora está enviando datos a hackers en este momento."},
+        {"speaker": "cliente", "text": "No sabía eso, ¿qué debo hacer?"},
+        {"speaker": "agente", "text": "Necesita descargar nuestro software de reparación ahora mismo y darnos acceso remoto para limpiar el virus. Cuesta 299 pesos pero le salva todos sus archivos."},
+        {"speaker": "cliente", "text": "¿Me pueden mandar algo por escrito primero?"},
+        {"speaker": "agente", "text": "No hay tiempo para eso, el virus se está propagando. ¿Tiene tarjeta de crédito a la mano?"}
+      ]
+    },
+    {
+      "id": "FRAUD_003",
+      "label": "fraudulenta",
+      "type": "premio_loteria",
+      "risk_score": 0.98,
+      "red_flags": ["premio_no_solicitado", "pago_adelantado_requerido", "secretismo", "numero_desconocido"],
+      "dialogue": [
+        {"speaker": "agente", "text": "¡Felicidades! Ha sido seleccionado como ganador de un premio de 500,000 pesos en el sorteo nacional."},
+        {"speaker": "cliente", "text": "Yo no me inscribí en ningún sorteo."},
+        {"speaker": "agente", "text": "Su número fue seleccionado aleatoriamente del padrón electoral. Solo necesita pagar los impuestos de liberación del premio que son 3,500 pesos."},
+        {"speaker": "cliente", "text": "¿Tengo que pagar para recibir un premio?"},
+        {"speaker": "agente", "text": "Es un requisito legal. Es solo para tramitar los papeles ante el SAT. Se los descontamos del premio luego. Puede hacer la transferencia a esta cuenta CLABE..."},
+        {"speaker": "cliente", "text": "Déjeme pensarlo."},
+        {"speaker": "agente", "text": "El premio vence hoy a las 6pm. Si no reclama ahora, pasa al siguiente ganador de la lista."}
+      ]
+    },
+    {
+      "id": "FRAUD_004",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.96,
+      "red_flags": ["amenaza_legal", "urgencia_artificial", "solicitud_pago_inmediato", "suplantacion_sat"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le llama el SAT. Tenemos una orden de arresto en su contra por evasión fiscal."},
+        {"speaker": "cliente", "text": "¿Qué? Eso no puede ser, yo siempre pago mis impuestos."},
+        {"speaker": "agente", "text": "Hay un adeudo de 2018 que no fue saldado. Si no regulariza su situación hoy, la policía irá a su domicilio en las próximas 2 horas."},
+        {"speaker": "cliente", "text": "¿Cómo puedo verificar esto?"},
+        {"speaker": "agente", "text": "No tiene tiempo para verificar. Para cancelar la orden de arresto debe realizar un pago de 8,500 pesos en tarjeta de regalo Oxxo o transferencia a la cuenta que le voy a dictar."},
+        {"speaker": "cliente", "text": "El SAT nunca hace esto por teléfono..."},
+        {"speaker": "agente", "text": "Soy el licenciado García, número de empleado 4471. ¿Prefiere explicarle a su familia por qué lo detuvieron?"}
+      ]
+    },
+    {
+      "id": "FRAUD_005",
+      "label": "fraudulenta",
+      "type": "urgencia_familiar",
+      "risk_score": 0.94,
+      "red_flags": ["manipulacion_emocional", "secretismo_solicitado", "pago_urgente", "historia_inverosimil"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Señora, soy el agente Hernández de la Fiscalía. Su hijo tuvo un accidente y está detenido."},
+        {"speaker": "cliente", "text": "¡Dios mío! ¿Está bien? ¿Dónde está?"},
+        {"speaker": "agente", "text": "Está bien físicamente pero causó daños a otro vehículo. Para evitar que pase la noche en el Ministerio Público necesita una fianza de 15,000 pesos."},
+        {"speaker": "cliente", "text": "Voy a llamar a mi hijo."},
+        {"speaker": "agente", "text": "No puede, le quitamos el celular como parte del protocolo. Por favor no le diga nada a nadie para no complicar su situación legal. ¿Puede hacer la transferencia ahora?"},
+        {"speaker": "cliente", "text": "¿No puedo ir personalmente?"},
+        {"speaker": "agente", "text": "El tiempo es crítico. Si no se paga en 30 minutos pasa al juez y ya no podemos ayudarle."}
+      ]
+    },
+    {
+      "id": "FRAUD_006",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.93,
+      "red_flags": ["solicitud_otp", "urgencia", "cuenta_intervenida_falso", "datos_sensibles"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, departamento antifraude de su banco. Alguien intentó transferir 30,000 pesos de su cuenta hace 5 minutos."},
+        {"speaker": "cliente", "text": "¡No fui yo! ¿Qué pasó?"},
+        {"speaker": "agente", "text": "Bloqueamos la transferencia a tiempo. Para confirmar que usted es el titular y cancelar el intento, necesito el código que le llegó por SMS ahora mismo."},
+        {"speaker": "cliente", "text": "Sí, me llegó uno, dice que no lo comparta..."},
+        {"speaker": "agente", "text": "Ese aviso es para extraños, pero yo soy del banco. Sin ese código no puedo proteger su cuenta. ¿Me lo puede dar?"},
+        {"speaker": "cliente", "text": "Es 847291."},
+        {"speaker": "agente", "text": "Perfecto. Su cuenta ya está protegida. En unos minutos recibirá confirmación."}
+      ]
+    },
+    {
+      "id": "FRAUD_007",
+      "label": "fraudulenta",
+      "type": "crypto",
+      "risk_score": 0.91,
+      "red_flags": ["inversion_garantizada", "promesas_irreales", "plataforma_falsa", "presion_rapida"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le llamo porque un amigo suyo nos dio su contacto. Tenemos una oportunidad de inversión en Bitcoin con rendimientos del 40% mensual."},
+        {"speaker": "cliente", "text": "¿40% mensual? Eso suena demasiado bueno."},
+        {"speaker": "agente", "text": "Usamos un algoritmo de trading exclusivo. Nuestros clientes llevan 8 meses con ese rendimiento. ¿Quiere ver los comprobantes?"},
+        {"speaker": "cliente", "text": "¿Cuánto tendría que invertir?"},
+        {"speaker": "agente", "text": "Desde 5,000 pesos ya puede empezar. Le creamos una cuenta en nuestra plataforma y en 30 días puede retirar con ganancias. Solo necesito sus datos y un depósito inicial hoy."},
+        {"speaker": "cliente", "text": "¿La plataforma está regulada?"},
+        {"speaker": "agente", "text": "Claro, estamos registrados internacionalmente. La oportunidad es solo para los primeros 10 clientes de hoy, quedan 2 lugares."}
+      ]
+    },
+    {
+      "id": "FRAUD_008",
+      "label": "fraudulenta",
+      "type": "seguro_medico",
+      "risk_score": 0.89,
+      "red_flags": ["beneficio_gratuito_falso", "solicitud_datos_nss", "suplantacion_imss"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le habla el IMSS. Tiene un beneficio de seguro de vida de 50,000 pesos sin costo que no ha reclamado."},
+        {"speaker": "cliente", "text": "¿Un beneficio? No sabía de eso."},
+        {"speaker": "agente", "text": "Es un programa del gobierno para derechohabientes. Para activarlo necesito verificar su número de seguridad social y CURP."},
+        {"speaker": "cliente", "text": "¿Para qué necesitan mi NSS si ya lo tienen?"},
+        {"speaker": "agente", "text": "Es para actualizar el sistema nuevo. Solo tarda un momento. ¿Me lo puede proporcionar junto con su fecha de nacimiento?"},
+        {"speaker": "cliente", "text": "¿No puedo ir directamente a una sucursal?"},
+        {"speaker": "agente", "text": "El beneficio vence esta semana. Si no lo activa hoy, lo pierden. ¿Tiene a la mano su tarjeta del IMSS?"}
+      ]
+    },
+    {
+      "id": "FRAUD_009",
+      "label": "fraudulenta",
+      "type": "proveedor_servicios",
+      "risk_score": 0.88,
+      "red_flags": ["corte_servicio_falso", "pago_urgente", "numero_desconocido", "cuenta_diferente"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le llamo de Telmex. Su línea será cortada esta noche por falta de pago."},
+        {"speaker": "cliente", "text": "Pero si yo tengo domiciliado el pago."},
+        {"speaker": "agente", "text": "Hubo un problema con el cargo este mes. Para evitar el corte necesita hacer un pago de 890 pesos hoy antes de las 8pm."},
+        {"speaker": "cliente", "text": "¿A dónde hago el pago?"},
+        {"speaker": "agente", "text": "Puede transferir a la cuenta 012 180 00123456 78 o pagar con tarjeta de crédito directamente conmigo. ¿Cuál prefiere?"},
+        {"speaker": "cliente", "text": "¿Por qué la cuenta es diferente a la que normalmente pago?"},
+        {"speaker": "agente", "text": "Es la nueva cuenta del departamento de cobranza. Es la oficial, no se preocupe."}
+      ]
+    },
+    {
+      "id": "FRAUD_010",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.97,
+      "red_flags": ["cambio_nip_solicitado", "engano_identidad", "solicitud_datos_completos"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy Ana de BBVA. Necesitamos actualizar los datos de su cuenta por el nuevo sistema regulatorio."},
+        {"speaker": "cliente", "text": "¿Qué datos necesitan?"},
+        {"speaker": "agente", "text": "Su número de tarjeta, NIP actual, fecha de vencimiento y los últimos movimientos para verificar que sea usted."},
+        {"speaker": "cliente", "text": "¿El NIP? ¿No se supone que eso no debo decírselo a nadie?"},
+        {"speaker": "agente", "text": "Somos el banco, estamos en sus sistemas. Sin esta verificación su cuenta quedará restringida por la CNBV."},
+        {"speaker": "cliente", "text": "Voy a llamar al número del reverso de mi tarjeta para confirmar."},
+        {"speaker": "agente", "text": "Puede hacerlo pero tardará horas y para entonces ya estará bloqueada. Yo puedo resolverlo en 2 minutos."}
+      ]
+    },
+    {
+      "id": "FRAUD_011",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.95,
+      "red_flags": ["suplantacion_infonavit", "adeudo_falso", "pago_urgente", "datos_sensibles"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le llama INFONAVIT. Detectamos irregularidades en su crédito hipotecario."},
+        {"speaker": "cliente", "text": "¿Qué tipo de irregularidades?"},
+        {"speaker": "agente", "text": "Hay un adeudo de 12,000 pesos de aportaciones patronales no aplicadas. Si no regulariza hoy, pierde su crédito."},
+        {"speaker": "cliente", "text": "¿Cómo es posible si tengo todo al corriente?"},
+        {"speaker": "agente", "text": "Fue un error del sistema anterior. Necesitamos su NSS y RFC para hacer la corrección y un pago de 2,500 de gastos administrativos."},
+        {"speaker": "cliente", "text": "¿INFONAVIT cobra por corregir sus propios errores?"},
+        {"speaker": "agente", "text": "Son los aranceles estipulados en la ley. Sin el pago no podemos procesar la corrección en el sistema."}
+      ]
+    },
+    {
+      "id": "FRAUD_012",
+      "label": "fraudulenta",
+      "type": "urgencia_familiar",
+      "risk_score": 0.96,
+      "red_flags": ["secuestro_virtual", "aislamiento", "pago_rescate", "manipulacion_emocional"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Señora, tiene a su hija aquí conmigo. Si llama a la policía la lastimo."},
+        {"speaker": "cliente", "text": "¡Qué! ¿Quién habla? ¿Dónde está mi hija?"},
+        {"speaker": "agente", "text": "[Voz de mujer llorando de fondo] Mamá ayúdame... [Se corta]"},
+        {"speaker": "cliente", "text": "¡Mi hija! ¿Qué le van a hacer?"},
+        {"speaker": "agente", "text": "Necesito que transfiera 50,000 pesos en los próximos 20 minutos. No cuelgue, no llame a nadie, no avise a su esposo. Si lo hace, su hija paga las consecuencias."},
+        {"speaker": "cliente", "text": "Por favor no le hagan daño, voy a conseguir el dinero..."},
+        {"speaker": "agente", "text": "Bien. Transfiera a esta cuenta y cuando confirme el pago, la dejamos libre. No haga tonterías."}
+      ]
+    },
+    {
+      "id": "FRAUD_013",
+      "label": "fraudulenta",
+      "type": "soporte_tecnico",
+      "risk_score": 0.90,
+      "red_flags": ["reembolso_falso", "acceso_remoto", "pago_en_gift_cards"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, soy del departamento de reembolsos de Windows. Usted tiene un crédito pendiente de 3,200 pesos por suscripción duplicada."},
+        {"speaker": "cliente", "text": "¿Un reembolso? No recuerdo haber tenido ese problema."},
+        {"speaker": "agente", "text": "Fue un cargo automático de hace 2 años. Para procesarlo necesitamos acceder a su computadora y verificar su cuenta bancaria."},
+        {"speaker": "cliente", "text": "¿Por qué necesitan acceso a mi computadora para devolverme dinero?"},
+        {"speaker": "agente", "text": "Es el protocolo para confirmar que la cuenta esté activa. Descargue AnyDesk y me da el código de 9 dígitos que aparece."},
+        {"speaker": "cliente", "text": "Eso me parece raro..."},
+        {"speaker": "agente", "text": "Es completamente seguro, solo revisamos los archivos de pago. Si no lo hace, el crédito se cancela automáticamente hoy."}
+      ]
+    },
+    {
+      "id": "FRAUD_014",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.92,
+      "red_flags": ["tarjeta_falsa_por_enviar", "solicitud_datos_completos", "mensajero_falso"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy de Banorte. Su tarjeta fue comprometida y necesitamos enviarle una nueva."},
+        {"speaker": "cliente", "text": "¿La mía fue clonada?"},
+        {"speaker": "agente", "text": "Sí, detectamos uso fraudulento. Un mensajero irá a recoger la tarjeta antigua y le dejará la nueva. Solo necesito verificar sus datos: número completo de tarjeta y NIP para activar la nueva."},
+        {"speaker": "cliente", "text": "¿El NIP también?"},
+        {"speaker": "agente", "text": "Es para pre-cargar la nueva tarjeta con el mismo NIP por comodidad. Es opcional pero así no tiene que ir a sucursal a cambiarlo."},
+        {"speaker": "cliente", "text": "¿El mensajero tiene identificación oficial?"},
+        {"speaker": "agente", "text": "Sí, trae uniforme de Banorte. El número de folio del mensajero es 4471. ¿A qué hora está en casa?"}
+      ]
+    },
+    {
+      "id": "FRAUD_015",
+      "label": "fraudulenta",
+      "type": "proveedor_servicios",
+      "risk_score": 0.87,
+      "red_flags": ["oferta_falsa", "datos_tarjeta_solicitados", "empresa_inexistente"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla CFE. Tiene un bono de ahorro en su recibo por ser cliente leal. Son 500 pesos que le acreditaremos."},
+        {"speaker": "cliente", "text": "Qué bien, ¿cómo funciona?"},
+        {"speaker": "agente", "text": "Se lo depositamos directamente en su cuenta o tarjeta. Solo necesito el número de su tarjeta de débito para el depósito."},
+        {"speaker": "cliente", "text": "¿Solo el número?"},
+        {"speaker": "agente", "text": "Y la fecha de vencimiento para verificar que está vigente. Son los únicos datos que necesitamos, no el NIP ni el CVV."},
+        {"speaker": "cliente", "text": "¿Por qué no lo depositan directo en mi cuenta de CFE o me dan crédito en el recibo?"},
+        {"speaker": "agente", "text": "El sistema de bonos funciona diferente. El depósito tarda solo 24 horas una vez que verificamos su tarjeta."}
+      ]
+    },
+    {
+      "id": "FRAUD_016",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.94,
+      "red_flags": ["cuenta_intervenida", "transferencia_proteccion_falsa", "urgencia"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Le llama el área de ciberseguridad de su banco. Encontramos un empleado interno que robó datos de cuentas, incluyendo la suya."},
+        {"speaker": "cliente", "text": "¿Qué tan grave es eso?"},
+        {"speaker": "agente", "text": "Muy grave. Para proteger su dinero necesita transferirlo temporalmente a una cuenta segura que habilitamos para este tipo de emergencias."},
+        {"speaker": "cliente", "text": "¿Transferir mi dinero a otra cuenta?"},
+        {"speaker": "agente", "text": "Es una bóveda digital del banco, totalmente segura. Una vez que detenemos al empleado, en 48 horas le regresamos todo. Si no actúa ahora, el ladrón puede vaciarlo esta noche."},
+        {"speaker": "cliente", "text": "Eso suena muy extraño para un banco."},
+        {"speaker": "agente", "text": "Es un protocolo de emergencia confidencial. No lo mencione en sucursal porque el empleado corrupto podría estar ahí."}
+      ]
+    },
+    {
+      "id": "FRAUD_017",
+      "label": "fraudulenta",
+      "type": "crypto",
+      "risk_score": 0.89,
+      "red_flags": ["recuperacion_fondos_falso", "pago_adelantado", "plataforma_falsa"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, somos una firma de recuperación de activos digitales. Sabemos que perdió dinero en una inversión de criptomonedas."},
+        {"speaker": "cliente", "text": "Sí, perdí como 20,000 pesos en una plataforma que resultó ser fraude."},
+        {"speaker": "agente", "text": "Trabajamos con Interpol y podemos recuperar su dinero. Tenemos el 90% de tasa de éxito. Solo necesita pagar los honorarios por adelantado."},
+        {"speaker": "cliente", "text": "¿Cuánto son los honorarios?"},
+        {"speaker": "agente", "text": "3,500 pesos para iniciar el proceso legal internacional. Si recuperamos su dinero, tomamos el 20%. Si no recuperamos nada, le devolvemos los honorarios."},
+        {"speaker": "cliente", "text": "¿Tienen algún número de registro oficial?"},
+        {"speaker": "agente", "text": "Sí, somos CryptoRecovery Global, registro internacional CE-4471. ¿Quiere proceder? Hay otros 5 casos de esa misma plataforma en proceso ahora."}
+      ]
+    },
+    {
+      "id": "FRAUD_018",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.93,
+      "red_flags": ["suplantacion_policia", "amenaza_arresto", "pago_en_efectivo"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Aquí la Policía Federal Cibernética. Su nombre apareció en una investigación de lavado de dinero."},
+        {"speaker": "cliente", "text": "¿Lavado de dinero? Eso es imposible."},
+        {"speaker": "agente", "text": "Sus cuentas recibieron transferencias marcadas. Estamos obligados a detenerle, pero hay un procedimiento alternativo para ciudadanos sin antecedentes."},
+        {"speaker": "cliente", "text": "¿Cuál procedimiento?"},
+        {"speaker": "agente", "text": "Una fianza de libertad provisional de 25,000 pesos que se deposita en la cuenta del Poder Judicial. Si es absuelto, se le devuelve al 100%."},
+        {"speaker": "cliente", "text": "¿No debería tener un abogado presente para esto?"},
+        {"speaker": "agente", "text": "Puede tener abogado, pero el proceso tarda 6 meses y mientras permanece detenido. Este procedimiento es mucho más rápido. ¿Qué prefiere?"}
+      ]
+    },
+    {
+      "id": "FRAUD_019",
+      "label": "fraudulenta",
+      "type": "seguro_medico",
+      "risk_score": 0.86,
+      "red_flags": ["seguro_falso", "descuento_urgente", "datos_sensibles", "empresa_desconocida"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, tenemos una promoción especial de seguro médico con cobertura de hasta 500,000 pesos por solo 199 pesos al mes."},
+        {"speaker": "cliente", "text": "¿Qué empresa son?"},
+        {"speaker": "agente", "text": "Somos MediProtect, aseguradora aliada con los principales hospitales del país. La promoción vence hoy."},
+        {"speaker": "cliente", "text": "¿Puedo verificarlos antes de contratar?"},
+        {"speaker": "agente", "text": "Claro, pero si contrata hoy, el primer mes es gratis y tiene 30 días para cancelar. Solo necesito su RFC, CURP y los datos de su tarjeta para el cargo mensual."},
+        {"speaker": "cliente", "text": "¿Por qué necesitan el RFC para un seguro?"},
+        {"speaker": "agente", "text": "Para emitir la póliza deducible de impuestos. Es completamente legal y necesario para el SAT."}
+      ]
+    },
+    {
+      "id": "FRAUD_020",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.91,
+      "red_flags": ["actualizacion_datos_falsa", "solicitud_completa_datos", "presion_temporal"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le llamo de Santander. Debe actualizar sus datos para cumplir con la nueva regulación de la CNBV antes del viernes."},
+        {"speaker": "cliente", "text": "¿Qué datos necesitan actualizar?"},
+        {"speaker": "agente", "text": "Dirección, teléfono y datos de su tarjeta para asegurar que siguen vigentes. Si no actualizamos, su cuenta queda restringida por regulación."},
+        {"speaker": "cliente", "text": "¿Por qué no me llegó un aviso por la app?"},
+        {"speaker": "agente", "text": "Es que la regulación es muy reciente. Se hace por teléfono para mayor seguridad. ¿Tiene su tarjeta a la mano? Necesito el número, fecha de vencimiento y CVV."},
+        {"speaker": "cliente", "text": "¿El CVV también?"},
+        {"speaker": "agente", "text": "Sí, es para verificar que no está comprometida. Es el procedimiento oficial, tengo su número de cliente aquí: ¿es usted el titular?"}
+      ]
+    },
+    {
+      "id": "FRAUD_021",
+      "label": "fraudulenta",
+      "type": "proveedor_servicios",
+      "risk_score": 0.85,
+      "red_flags": ["contrato_falso", "descuento_urgente", "datos_banco_solicitados"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le llama Izzi. Tiene disponible un plan de fibra óptica con 50% de descuento por ser cliente frecuente."},
+        {"speaker": "cliente", "text": "Interesante, ¿en qué consiste?"},
+        {"speaker": "agente", "text": "200 megas por solo 299 pesos al mes, con instalación gratis. Solo necesito confirmar su domicilio y datos de pago para el contrato."},
+        {"speaker": "cliente", "text": "¿Qué datos de pago necesitan?"},
+        {"speaker": "agente", "text": "Número de tarjeta o cuenta CLABE para domiciliar el servicio. No hacemos cargos hasta la instalación."},
+        {"speaker": "cliente", "text": "¿Puedo ir a una tienda a confirmar esta oferta primero?"},
+        {"speaker": "agente", "text": "Esta promoción es exclusiva por llamada y vence hoy. En tienda ya no está disponible. ¿Desea aprovecharla?"}
+      ]
+    },
+    {
+      "id": "FRAUD_022",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.90,
+      "red_flags": ["beca_falsa", "datos_menores", "solicitud_curp_nss"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le llama la SEP. Sus hijos tienen una beca disponible de 5,000 pesos por buen desempeño escolar."},
+        {"speaker": "cliente", "text": "¿Una beca? ¿De qué programa?"},
+        {"speaker": "agente", "text": "Programa Excelencia Educativa 2024. Para tramitarla necesito el CURP y acta de nacimiento de sus hijos, y sus datos como tutor."},
+        {"speaker": "cliente", "text": "¿Cómo verifico que es un programa real?"},
+        {"speaker": "agente", "text": "Puede verlo en la página de SEP, pero el trámite es solo por esta línea. También necesito su cuenta bancaria para el depósito de la beca."},
+        {"speaker": "cliente", "text": "¿Y si mis hijos no están inscritos en escuela pública?"},
+        {"speaker": "agente", "text": "El programa incluye escuelas privadas también. ¿Cuántos hijos tiene? Cada uno tiene derecho a la beca individual."}
+      ]
+    },
+    {
+      "id": "FRAUD_023",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.96,
+      "red_flags": ["doble_factor_solicitado", "engano_verificacion", "cuenta_vaciada"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Le llama seguridad de Citibanamex. Alguien desde Rusia intentó acceder a su banca en línea."},
+        {"speaker": "cliente", "text": "Eso es preocupante, ¿qué hago?"},
+        {"speaker": "agente", "text": "Estamos bloqueando el acceso ahora. Para confirmar su identidad, le voy a enviar dos códigos por SMS. Es importante que me los diga en orden."},
+        {"speaker": "cliente", "text": "¿Por qué dos códigos?"},
+        {"speaker": "agente", "text": "El primero activa el bloqueo y el segundo lo confirma. Es el nuevo protocolo de doble autenticación para casos de emergencia."},
+        {"speaker": "cliente", "text": "Llegaron: el primero es 374821 y el segundo 659047."},
+        {"speaker": "agente", "text": "Perfecto. Su cuenta ya está protegida. Recibirá un correo de confirmación en breve."}
+      ]
+    },
+    {
+      "id": "FRAUD_024",
+      "label": "fraudulenta",
+      "type": "urgencia_familiar",
+      "risk_score": 0.92,
+      "red_flags": ["accidente_falso", "hospital_falso", "pago_medicamentos_urgente"],
+      "dialogue": [
+        {"speaker": "agente", "text": "¿Es usted familiar de Rodrigo García? Soy enfermero del Hospital General, tuvo un accidente de tránsito."},
+        {"speaker": "cliente", "text": "¡Dios mío! ¿Está bien? ¿Qué tan grave está?"},
+        {"speaker": "agente", "text": "Está estable pero necesita medicamentos urgentes que no tenemos en el hospital. Cuestan 8,500 pesos y deben comprarse ya."},
+        {"speaker": "cliente", "text": "¿Por qué el hospital no los tiene?"},
+        {"speaker": "agente", "text": "Son importados y el almacén está vacío. Si no los conseguimos en 2 horas el cuadro se complica. ¿Puede hacer la transferencia a la farmacia?"},
+        {"speaker": "cliente", "text": "¿Puedo hablar con mi hijo directamente?"},
+        {"speaker": "agente", "text": "Está sedado por el dolor. No hay tiempo que perder. Cada minuto cuenta para su recuperación."}
+      ]
+    },
+    {
+      "id": "FRAUD_025",
+      "label": "fraudulenta",
+      "type": "proveedor_servicios",
+      "risk_score": 0.84,
+      "red_flags": ["deuda_falsa", "amenaza_buró", "pago_urgente"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le llama el área legal de Telcel. Tiene una deuda pendiente que va a reportarse al Buró de Crédito mañana."},
+        {"speaker": "cliente", "text": "¿Qué deuda? Cancelé ese plan hace meses y quedé a mano."},
+        {"speaker": "agente", "text": "Hay cargos de penalización por cancelación anticipada que no fueron liquidados. Son 3,200 pesos."},
+        {"speaker": "cliente", "text": "¿Por qué no me llegó ningún aviso antes?"},
+        {"speaker": "agente", "text": "Se enviaron al correo que tenemos registrado. Para evitar el reporte al Buró hoy, puede pagar con tarjeta de crédito por este medio."},
+        {"speaker": "cliente", "text": "Tengo mis comprobantes de pago y carta de cancelación."},
+        {"speaker": "agente", "text": "Esos comprobantes son del plan, no de los cargos adicionales. Si no paga hoy, el reporte se hace automáticamente a medianoche."}
+      ]
+    },
+    {
+      "id": "FRAUD_026",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.95,
+      "red_flags": ["token_solicitado", "pretexto_actualizacion", "tono_oficial_falso"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, aquí HSBC servicios digitales. Necesitamos que migre su cuenta al nuevo sistema de seguridad bancaria."},
+        {"speaker": "cliente", "text": "¿Cuándo fue eso?"},
+        {"speaker": "agente", "text": "Es un requisito nuevo de Banco de México vigente desde esta semana. El proceso dura 3 minutos. Necesito que abra su app y me diga el token que aparece."},
+        {"speaker": "cliente", "text": "¿El token de acceso?"},
+        {"speaker": "agente", "text": "Sí, es para verificar que su dispositivo está vinculado correctamente al nuevo sistema. Es totalmente seguro."},
+        {"speaker": "cliente", "text": "¿No hay otra forma de hacer esto sin decirte el token?"},
+        {"speaker": "agente", "text": "Puede ir a sucursal pero hay cola de 3 horas. Por teléfono tarda 3 minutos y su cuenta ya está migrada."}
+      ]
+    },
+    {
+      "id": "FRAUD_027",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.88,
+      "red_flags": ["devolucion_fiscal_falsa", "datos_sensibles_solicitados", "urgencia"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le habla el SAT. Tiene una devolución fiscal de 7,800 pesos disponible."},
+        {"speaker": "cliente", "text": "No la había solicitado, ¿de qué se trata?"},
+        {"speaker": "agente", "text": "Es del ajuste anual de su declaración. Para procesarla necesito verificar su RFC, CURP y los datos de la cuenta donde le depositamos."},
+        {"speaker": "cliente", "text": "¿El SAT no tiene ya mis datos en el sistema?"},
+        {"speaker": "agente", "text": "Los tenemos pero necesitamos confirmación verbal por seguridad del contribuyente. También necesito el número de su tarjeta para hacer el depósito directo."},
+        {"speaker": "cliente", "text": "El SAT normalmente solo pide número de cuenta o CLABE, no número de tarjeta."},
+        {"speaker": "agente", "text": "Es el nuevo método de devolución express. El proceso tradicional tarda 30 días, este es inmediato."}
+      ]
+    },
+    {
+      "id": "FRAUD_028",
+      "label": "fraudulenta",
+      "type": "soporte_tecnico",
+      "risk_score": 0.87,
+      "red_flags": ["suscripcion_falsa", "reembolso_trampa", "acceso_bancario_solicitado"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le llama Apple. Detectamos que se está cobrando una suscripción no autorizada de iCloud de 1,800 pesos mensuales en su cuenta."},
+        {"speaker": "cliente", "text": "¿Eso es posible? No lo autorizo."},
+        {"speaker": "agente", "text": "Alguien asoció su ID de Apple a una cuenta premium sin su consentimiento. Para cancelarla y hacer el reembolso necesito acceso a su banca en línea."},
+        {"speaker": "cliente", "text": "¿Por qué necesitan mi banca en línea para cancelar algo de Apple?"},
+        {"speaker": "agente", "text": "Para rastrear las transacciones no autorizadas y bloquear el acceso del hacker a su cuenta financiera. Es para su protección."},
+        {"speaker": "cliente", "text": "Eso no tiene sentido. Apple no tiene nada que ver con mi banco."},
+        {"speaker": "agente", "text": "Los cargos se hicieron a través de su banco, por eso necesitamos coordinarnos con ellos. ¿Puede abrir su banca en línea?"}
+      ]
+    },
+    {
+      "id": "FRAUD_029",
+      "label": "fraudulenta",
+      "type": "premio_loteria",
+      "risk_score": 0.97,
+      "red_flags": ["ganador_falso", "impuesto_previo", "datos_banco"],
+      "dialogue": [
+        {"speaker": "agente", "text": "¡Enhorabuena! Es usted el ganador del segundo lugar del sorteo de Navidad de la Lotería Nacional: 200,000 pesos."},
+        {"speaker": "cliente", "text": "¿Yo? ¿Compré algún boleto?"},
+        {"speaker": "agente", "text": "El premio corresponde a un décimo que fue comprado a su nombre. Para cobrarlo necesita pagar el ISR del 10%: 20,000 pesos."},
+        {"speaker": "cliente", "text": "¿Debo pagar 20,000 para recibir 200,000?"},
+        {"speaker": "agente", "text": "Es el impuesto federal. Lo puede descontar del premio una vez cobrado, pero primero debe demostrarse solvencia para recibir premios mayores."},
+        {"speaker": "cliente", "text": "¿La Lotería Nacional no descuenta los impuestos automáticamente?"},
+        {"speaker": "agente", "text": "Este es un proceso especial para premios fuera de temporada. ¿Tiene disponibles los 20,000 pesos?"}
+      ]
+    },
+    {
+      "id": "FRAUD_030",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.91,
+      "red_flags": ["tarjeta_clonada_pretexto", "datos_completos_solicitados", "verificacion_falsa"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy de Banamex seguridad. Su tarjeta fue usada en una tienda de electrónicos en Monterrey hace 20 minutos."},
+        {"speaker": "cliente", "text": "Estoy en la Ciudad de México, no fui yo."},
+        {"speaker": "agente", "text": "Exacto, por eso le llamamos. Para cancelar esa transacción y emitir una nueva tarjeta necesito verificar sus datos completos."},
+        {"speaker": "cliente", "text": "¿Qué datos exactamente?"},
+        {"speaker": "agente", "text": "Número de tarjeta, fecha de vencimiento, CVV y los últimos cuatro dígitos de su número de cuenta. Para que el proceso sea rápido."},
+        {"speaker": "cliente", "text": "¿Por qué no simplemente bloquean la tarjeta desde el sistema?"},
+        {"speaker": "agente", "text": "Ya la bloqueamos pero necesitamos sus datos para verificar que usted no es cómplice del fraude, es un procedimiento estándar."}
+      ]
+    },
+    {
+      "id": "FRAUD_031",
+      "label": "fraudulenta",
+      "type": "crypto",
+      "risk_score": 0.93,
+      "red_flags": ["influencer_falso", "inversion_minima_urgent", "plataforma_inexistente"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy asistente de Carlos Muñoz, el empresario. Nos dio su contacto para una inversión exclusiva en su fondo de Bitcoin."},
+        {"speaker": "cliente", "text": "¿Carlos Muñoz me recomendó?"},
+        {"speaker": "agente", "text": "Sí, el fondo está cerrando con nuevos inversores esta semana. Mínimo de 10,000 pesos con rendimientos históricos del 35% trimestral."},
+        {"speaker": "cliente", "text": "¿Puedo hablar directamente con el señor Muñoz?"},
+        {"speaker": "agente", "text": "Está de viaje en el extranjero pero puedo contactarlo. El plazo cierra mañana porque ya cubrimos el cupo. ¿Quiere asegurar su lugar?"},
+        {"speaker": "cliente", "text": "Necesito tiempo para pensarlo y verificar."},
+        {"speaker": "agente", "text": "Entiendo, pero si espera pierde el cupo. Otros inversores están listos. Solo necesita transferir los 10,000 ahora para asegurar su entrada."}
+      ]
+    },
+    {
+      "id": "FRAUD_032",
+      "label": "fraudulenta",
+      "type": "seguro_medico",
+      "risk_score": 0.85,
+      "red_flags": ["accidente_falso_previo", "compensacion_seguro", "datos_banco_solicitados"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, soy del departamento de compensaciones de GNP Seguros. Tiene una compensación pendiente por un accidente de 2021."},
+        {"speaker": "cliente", "text": "Tuve un accidente ese año sí, pero ya lo liquidaron en su momento."},
+        {"speaker": "agente", "text": "Hubo un ajuste en el cálculo y le deben 12,400 pesos adicionales. Para depositarlos necesito sus datos bancarios actualizados."},
+        {"speaker": "cliente", "text": "¿Por qué tardaron 3 años en notificarme?"},
+        {"speaker": "agente", "text": "Fue una auditoría interna que revisó todos los casos del año. Tiene hasta el viernes para reclamar o el monto regresa al fondo general."},
+        {"speaker": "cliente", "text": "¿Puedo llamar a GNP directamente para confirmar?"},
+        {"speaker": "agente", "text": "Puede pero el área de compensaciones históricas es diferente. Yo le doy este número directo para que lo verifique... [da número falso]"}
+      ]
+    },
+    {
+      "id": "FRAUD_033",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.92,
+      "red_flags": ["afore_falso", "retiro_trampa", "datos_nss"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, soy ejecutivo de AFORE Sura. Su cuenta tiene un saldo disponible para retiro parcial que no ha solicitado."},
+        {"speaker": "cliente", "text": "¿Puedo hacer retiros parciales de la AFORE?"},
+        {"speaker": "agente", "text": "Sí, por desempleo o matrimonio. Tiene disponibles 45,000 pesos. Para tramitarlo necesito su NSS, CURP y datos bancarios."},
+        {"speaker": "cliente", "text": "¿No se hace esto directamente en la AFORE?"},
+        {"speaker": "agente", "text": "Tenemos un servicio de gestoría que hace el trámite sin que vaya a sucursal. Solo cobra el 5% del monto retirado como honorarios."},
+        {"speaker": "cliente", "text": "¿La AFORE cobra comisión por hacer retiros?"},
+        {"speaker": "agente", "text": "No es la AFORE, somos una firma gestora autorizada. El proceso es más rápido y sin filas. ¿Le interesa?"}
+      ]
+    },
+    {
+      "id": "FRAUD_034",
+      "label": "fraudulenta",
+      "type": "urgencia_familiar",
+      "risk_score": 0.94,
+      "red_flags": ["deportacion_falsa", "pago_frontera", "urgencia_extrema"],
+      "dialogue": [
+        {"speaker": "agente", "text": "¿Es familiar de Mario López? Soy del INM, está detenido en la frontera por documentos irregulares."},
+        {"speaker": "cliente", "text": "¡Dios mío! Él andaba de viaje, ¿qué pasó exactamente?"},
+        {"speaker": "agente", "text": "Tiene documentos de trabajo no homologados. Para evitar la deportación y deportación, necesita pagar una multa de 18,000 pesos en las próximas horas."},
+        {"speaker": "cliente", "text": "¿Puedo hablar con él?"},
+        {"speaker": "agente", "text": "Está siendo procesado y no puede recibir llamadas. Si no se paga la multa en 3 horas, el procedimiento de deportación es automático."},
+        {"speaker": "cliente", "text": "¿Cómo hago el pago?"},
+        {"speaker": "agente", "text": "Transferencia bancaria o depósito en efectivo. No hay otra forma de parar el proceso migratorio."}
+      ]
+    },
+    {
+      "id": "FRAUD_035",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.89,
+      "red_flags": ["app_falsa", "link_phishing", "datos_acceso"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Le habla Banregio. Por la actualización de seguridad necesita reinstalar la app. Le voy a enviar un SMS con el link oficial."},
+        {"speaker": "cliente", "text": "¿Por qué por SMS y no desde la tienda de apps?"},
+        {"speaker": "agente", "text": "La versión de la tienda no está actualizada aún. El link que le mando es el oficial del banco con la versión más reciente."},
+        {"speaker": "cliente", "text": "Me llegó un link, es banregio-seguro.com, ¿ese es?"},
+        {"speaker": "agente", "text": "Sí, ese es. Instale la app, ingrese sus credenciales y recibirá el nuevo token de seguridad."},
+        {"speaker": "cliente", "text": "El sitio oficial del banco debería terminar en .com.mx no en .com."},
+        {"speaker": "agente", "text": "Este es el portal internacional. Es completamente seguro, tiene todos los certificados."}
+      ]
+    },
+    {
+      "id": "FRAUD_036",
+      "label": "fraudulenta",
+      "type": "soporte_tecnico",
+      "risk_score": 0.86,
+      "red_flags": ["licencia_vencida_falsa", "pago_renovacion", "presion_datos"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, somos de soporte de Norton Antivirus. Su licencia vence hoy y su computadora quedará desprotegida."},
+        {"speaker": "cliente", "text": "¿Norton? No tengo Norton instalado."},
+        {"speaker": "agente", "text": "Es la licencia que venía preinstalada con su equipo. Si no la renueva, el sistema quedará expuesto a ransomware."},
+        {"speaker": "cliente", "text": "¿Cuánto cuesta la renovación?"},
+        {"speaker": "agente", "text": "299 pesos por año. Puedo procesarla ahora mismo con su tarjeta. Es precio especial por ser cliente existente."},
+        {"speaker": "cliente", "text": "¿Me pueden mandar la factura primero?"},
+        {"speaker": "agente", "text": "La factura se manda después del pago. Si esperamos, hoy a las 12 su antivirus se desactiva y quedan expuestos sus datos bancarios."}
+      ]
+    },
+    {
+      "id": "FRAUD_037",
+      "label": "fraudulenta",
+      "type": "premio_loteria",
+      "risk_score": 0.96,
+      "red_flags": ["coche_gratis_falso", "gastos_liberacion", "secretismo"],
+      "dialogue": [
+        {"speaker": "agente", "text": "¡Felicidades! Su número ganó un Nissan Versa 0 km en el concurso de una marca de bebidas."},
+        {"speaker": "cliente", "text": "¿Yo participé en ese concurso?"},
+        {"speaker": "agente", "text": "Con la compra de un producto su código fue registrado automáticamente. El auto está en el almacén listo para entregarse."},
+        {"speaker": "cliente", "text": "¿Qué necesito hacer?"},
+        {"speaker": "agente", "text": "Solo pagar los gastos de liberación aduanal y ISAN: 12,500 pesos. Una vez pagados, coordinamos la entrega en su domicilio."},
+        {"speaker": "cliente", "text": "¿Un coche tiene gastos de liberación aduanal si es nacional?"},
+        {"speaker": "agente", "text": "El lote fue importado para el concurso. Es el único costo. El auto vale 250,000 pesos, son gastos mínimos comparados con el premio."}
+      ]
+    },
+    {
+      "id": "FRAUD_038",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.94,
+      "red_flags": ["cuenta_nueva_trampa", "transferencia_proteccion", "datos_multiples"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Área antifraude de Scotiabank. Sus datos fueron filtrados en una brecha de seguridad de un comercio."},
+        {"speaker": "cliente", "text": "¿Qué comercio? ¿Cuándo fue eso?"},
+        {"speaker": "agente", "text": "Un retailer grande hace 3 días. Para proteger su dinero vamos a crear una cuenta espejo segura y migrar su saldo."},
+        {"speaker": "cliente", "text": "¿Qué es una cuenta espejo?"},
+        {"speaker": "agente", "text": "Una cuenta temporal con número diferente mientras bloqueamos la comprometida. Para crearla necesito su número de cuenta actual, saldo aproximado y clave de banca en línea."},
+        {"speaker": "cliente", "text": "¿Tienen que darme una nueva cuenta sin pedirme datos para hacerlo?"},
+        {"speaker": "agente", "text": "En emergencias el proceso es diferente. ¿Prefiere que el ladrón vacíe su cuenta mientras tanto?"}
+      ]
+    },
+    {
+      "id": "FRAUD_039",
+      "label": "fraudulenta",
+      "type": "crypto",
+      "risk_score": 0.90,
+      "red_flags": ["romance_scam", "inversion_urgente", "historia_personal"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy Valentina, nos conocimos en la app. Quería preguntarte si escuchaste del método de trading que uso."},
+        {"speaker": "cliente", "text": "No, cuéntame."},
+        {"speaker": "agente", "text": "Es una estrategia de arbitraje en crypto que uso con mi tío que trabaja en una exchange en Hong Kong. Gano entre 15 y 20% mensual."},
+        {"speaker": "cliente", "text": "¿Eso funciona de verdad?"},
+        {"speaker": "agente", "text": "Llevo 8 meses haciéndolo. Si quieres, te ayudo a abrir tu cuenta en la plataforma. Yo te enseño, es muy fácil. Solo necesitas depositar 5,000 dólares para empezar."},
+        {"speaker": "cliente", "text": "¿Por qué tanto?"},
+        {"speaker": "agente", "text": "Es el mínimo de la plataforma. Pero en un mes recuperas lo doble. Yo te ayudo en cada paso, te lo prometo."}
+      ]
+    },
+    {
+      "id": "FRAUD_040",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.91,
+      "red_flags": ["programa_apoyo_falso", "datos_sensibles", "enlace_phishing"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, soy de Bienestar. Tiene derecho a un apoyo económico de 4,200 pesos mensuales que no ha solicitado."},
+        {"speaker": "cliente", "text": "¿Qué programa es ese?"},
+        {"speaker": "agente", "text": "Es Sembrando Vida expandido para adultos en zonas urbanas. Para inscribirse necesita su CURP, RFC y datos bancarios para el depósito mensual."},
+        {"speaker": "cliente", "text": "¿Cómo me entero de que soy elegible?"},
+        {"speaker": "agente", "text": "Su colonia está incluida en el padrón nuevo. Le voy a enviar un link para subir sus documentos de forma segura."},
+        {"speaker": "cliente", "text": "¿No puedo ir a las oficinas de Bienestar?"},
+        {"speaker": "agente", "text": "Sí puede, pero hay listas de espera de 3 meses. Por teléfono el proceso es inmediato y el primer depósito llega en 5 días."}
+      ]
+    },
+    {
+      "id": "FRAUD_041",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.93,
+      "red_flags": ["limite_credito_falso", "verificacion_datos", "urgencia_24h"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, somos de Inbursa. Le llamamos para informar que tiene disponible una ampliación de línea de crédito de 80,000 pesos."},
+        {"speaker": "cliente", "text": "¿De verdad? ¿Qué debo hacer?"},
+        {"speaker": "agente", "text": "Solo verificar sus datos para activarla. Es rápido: número de tarjeta, fecha de vencimiento y los últimos movimientos de su cuenta."},
+        {"speaker": "cliente", "text": "¿Para qué necesitan mis movimientos?"},
+        {"speaker": "agente", "text": "Para confirmar su comportamiento financiero y aprobar el aumento. Es parte del análisis de riesgo. ¿Cuál fue su último cargo?"},
+        {"speaker": "cliente", "text": "Prefiero ir a sucursal a hacer esto."},
+        {"speaker": "agente", "text": "Puede hacerlo pero la oferta vence en 24 horas y en sucursal ya no aplica. Esta es una campaña especial telefónica."}
+      ]
+    },
+    {
+      "id": "FRAUD_042",
+      "label": "fraudulenta",
+      "type": "soporte_tecnico",
+      "risk_score": 0.88,
+      "red_flags": ["virus_critico_falso", "remotamente_controlado", "pago_inmediato"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Urgente, soy del equipo de respuesta de Google. Su dispositivo Android está comprometido por malware bancario."},
+        {"speaker": "cliente", "text": "¿Cuándo pasó eso?"},
+        {"speaker": "agente", "text": "Hace 48 horas. El virus captura contraseñas bancarias. Ya obtuvieron parte de sus datos. Debemos limpiar el dispositivo ahora."},
+        {"speaker": "cliente", "text": "¿Cómo limpian el dispositivo?"},
+        {"speaker": "agente", "text": "Descargue la app Google Security Pro, le mando el link, y nosotros entramos al dispositivo de forma segura para eliminar el malware. Cuesta 199 pesos."},
+        {"speaker": "cliente", "text": "Google no cobra por soporte de seguridad."},
+        {"speaker": "agente", "text": "Es un servicio premium express. El gratuito tarda 2 semanas. ¿Prefiere esperar mientras el malware sigue activo?"}
+      ]
+    },
+    {
+      "id": "FRAUD_043",
+      "label": "fraudulenta",
+      "type": "proveedor_servicios",
+      "risk_score": 0.83,
+      "red_flags": ["cargo_no_reconocido", "datos_tarjeta_cancelacion", "trampa_cancelacion"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy de Disney+. Detectamos que hay una suscripción premium duplicada en su cuenta que genera un cargo extra."},
+        {"speaker": "cliente", "text": "¿Duplicada? ¿Cómo pasó eso?"},
+        {"speaker": "agente", "text": "Un error del sistema al procesar una actualización. Para cancelar el duplicado y hacer el reembolso de los cobros extra necesito verificar su tarjeta."},
+        {"speaker": "cliente", "text": "¿Por qué necesitan la tarjeta para cancelar algo interno del sistema?"},
+        {"speaker": "agente", "text": "Para confirmar a qué tarjeta hacemos el reembolso. Solo el número completo y fecha de vencimiento, nada más."},
+        {"speaker": "cliente", "text": "Puedo ir a los ajustes de mi cuenta y cancelar yo mismo."},
+        {"speaker": "agente", "text": "El duplicado no aparece en los ajustes, es un error de backend. Solo lo podemos resolver de este lado con sus datos."}
+      ]
+    },
+    {
+      "id": "FRAUD_044",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.95,
+      "red_flags": ["empleado_banco_falso", "datos_completos", "llamada_iniciada_externo"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, soy el licenciado Ramírez de la gerencia de cuentas de BBVA. ¿Habla con el titular de la cuenta?"},
+        {"speaker": "cliente", "text": "Sí, ¿en qué le puedo ayudar?"},
+        {"speaker": "agente", "text": "Tenemos una oferta especial de tasa preferencial del 12% anual para su crédito hipotecario. Para activarla hoy necesito verificar algunos datos."},
+        {"speaker": "cliente", "text": "¿Qué datos?"},
+        {"speaker": "agente", "text": "Su número de cuenta, saldo actual, datos de identificación y el número completo de todas sus tarjetas vinculadas para el análisis de capacidad."},
+        {"speaker": "cliente", "text": "Nunca he escuchado que un banco pida todos esos datos por teléfono para una oferta."},
+        {"speaker": "agente", "text": "Es un proceso nuevo de banca ejecutiva. ¿Prefiere llamar al número del banco? Le puedo dar el número directo del área especial."}
+      ]
+    },
+    {
+      "id": "FRAUD_045",
+      "label": "fraudulenta",
+      "type": "urgencia_familiar",
+      "risk_score": 0.93,
+      "red_flags": ["familiar_hospitalizado", "pago_cirugia_urgente", "cuenta_personal"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Señor, soy coordinador de urgencias del Hospital Ángeles. Su padre está en quirófano y necesitan su autorización para una cirugía urgente."},
+        {"speaker": "cliente", "text": "¿Mi padre? ¿Cuándo ingresó?"},
+        {"speaker": "agente", "text": "Hace una hora. Tiene una oclusión intestinal, es emergencia. La cirugía cuesta 85,000 pesos y necesitan un depósito del 50% para comenzar."},
+        {"speaker": "cliente", "text": "¿No puedo ir al hospital directamente?"},
+        {"speaker": "agente", "text": "Está en otro estado. El tiempo es crítico, la cirugía debe ser en las próximas 2 horas o el riesgo aumenta. ¿Puede hacer la transferencia ahora?"},
+        {"speaker": "cliente", "text": "¿Por qué no le informaron a otros familiares primero?"},
+        {"speaker": "agente", "text": "Usted aparece como contacto de emergencia principal. Los otros no contestan. ¿Tiene disponibles los 42,500 pesos?"}
+      ]
+    },
+    {
+      "id": "FRAUD_046",
+      "label": "fraudulenta",
+      "type": "gobierno_impuestos",
+      "risk_score": 0.87,
+      "red_flags": ["multa_transito_falsa", "pago_descuento_urgente", "datos_vehiculo"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le habla la Secretaría de Movilidad. Tiene 3 infracciones de tránsito no pagadas que pasarán a cobranza jurídica."},
+        {"speaker": "cliente", "text": "¿Infracciones? No recuerdo haber tenido ninguna."},
+        {"speaker": "agente", "text": "Son de velocidad captadas por cámaras. El monto total es 4,800 pesos pero con descuento del 50% si paga hoy: 2,400."},
+        {"speaker": "cliente", "text": "¿Cómo verifico que esas infracciones existen?"},
+        {"speaker": "agente", "text": "Le mando folio por SMS. Para aplicar el descuento necesito que me confirme su placa y número de licencia y haga el pago hoy."},
+        {"speaker": "cliente", "text": "¿No puedo verificarlo en el portal de la Secretaría?"},
+        {"speaker": "agente", "text": "El portal está en mantenimiento. Si no paga hoy, el descuento no aplica y además generamos orden de inmovilización del vehículo."}
+      ]
+    },
+    {
+      "id": "FRAUD_047",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.96,
+      "red_flags": ["whatsapp_banco_falso", "link_phishing", "robo_credenciales"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla el área digital de HSBC. ¿Recibió el mensaje de WhatsApp que le enviamos?"},
+        {"speaker": "cliente", "text": "Sí, acabo de verlo."},
+        {"speaker": "agente", "text": "Perfecto. Debe dar click en el link del mensaje para actualizar su certificado digital. Es obligatorio por nueva normativa bancaria."},
+        {"speaker": "cliente", "text": "El link me lleva a un sitio que no parece de HSBC."},
+        {"speaker": "agente", "text": "Es un subdominio del banco para la actualización. Ingrese sus credenciales ahí para completar el proceso."},
+        {"speaker": "cliente", "text": "¿El banco no debería actualizar eso sin pedirme credenciales?"},
+        {"speaker": "agente", "text": "Para este tipo de actualización necesitamos autorización del titular. Es por su seguridad, no la nuestra."}
+      ]
+    },
+    {
+      "id": "FRAUD_048",
+      "label": "fraudulenta",
+      "type": "crypto",
+      "risk_score": 0.88,
+      "red_flags": ["trabajo_remoto_falso", "pago_crypto_adelantado", "empleo_trampa"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le llamo de TechWork Global. Vimos su perfil en LinkedIn y tenemos una vacante de trabajo remoto para usted."},
+        {"speaker": "cliente", "text": "¿De qué trata el trabajo?"},
+        {"speaker": "agente", "text": "Optimización de algoritmos de trading. Gana entre 800 y 1,500 dólares semanales desde casa. Solo 2-3 horas al día."},
+        {"speaker": "cliente", "text": "¿Qué necesito para empezar?"},
+        {"speaker": "agente", "text": "Abrir una cuenta en nuestra plataforma de trading y hacer un depósito de demostración de 200 dólares para activar su cuenta de empleado."},
+        {"speaker": "cliente", "text": "¿Los empleados tienen que depositar dinero para trabajar?"},
+        {"speaker": "agente", "text": "Es un requisito de la plataforma, no nuestro. Se devuelve en su primer pago quincenal. Muchos empleados ya lo han recibido."}
+      ]
+    },
+    {
+      "id": "FRAUD_049",
+      "label": "fraudulenta",
+      "type": "seguro_medico",
+      "risk_score": 0.86,
+      "red_flags": ["medicamento_gratuito_falso", "datos_medicos_sensibles", "domicilio_entrega_trampa"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, soy de Farmacias del Ahorro. Tiene disponible un kit de medicamentos gratuitos por su plan de salud."},
+        {"speaker": "cliente", "text": "¿Un kit gratuito? No sabía de eso."},
+        {"speaker": "agente", "text": "Es un beneficio nuevo para clientes frecuentes. Incluye vitaminas, antihipertensivos y antiinflamatorios. ¿Toma alguna medicación actual?"},
+        {"speaker": "cliente", "text": "Sí, tomo medicación para la presión."},
+        {"speaker": "agente", "text": "Perfecto, podemos incluir esa medicación. Necesito su nombre completo, domicilio para entrega, fecha de nacimiento y datos de su seguro médico."},
+        {"speaker": "cliente", "text": "¿Para qué necesitan los datos del seguro para entregar algo gratis?"},
+        {"speaker": "agente", "text": "Para facturar el costo al seguro y que no le cobre a usted. Es parte del convenio que tenemos con las aseguradoras."}
+      ]
+    },
+    {
+      "id": "FRAUD_050",
+      "label": "fraudulenta",
+      "type": "bancario",
+      "risk_score": 0.97,
+      "red_flags": ["cuenta_bloqueada_falso", "presion_maxima", "multiples_datos_solicitados"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Emergencia bancaria: su cuenta ha sido bloqueada por actividad ilegal detectada. Soy el supervisor del área de riesgos de su banco."},
+        {"speaker": "cliente", "text": "¿Actividad ilegal? ¿Cuál?"},
+        {"speaker": "agente", "text": "Tres transferencias a cuentas marcadas por la UIF. Para desbloquear antes de que pase a la FGR necesito verificar todos sus datos ahora."},
+        {"speaker": "cliente", "text": "¿Qué datos?"},
+        {"speaker": "agente", "text": "Número de todas sus tarjetas, NIP, saldo total en cuenta, clave de banca en línea y cualquier inversión que tenga. Es urgente, tengo 10 minutos para reportar."},
+        {"speaker": "cliente", "text": "Voy a llamar al banco directamente."},
+        {"speaker": "agente", "text": "No hay tiempo. Si llama al banco el proceso legal ya inició y no lo puedo detener. Yo soy su única opción en este momento."}
+      ]
+    },
+    {
+      "id": "LEGIT_001",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.05,
+      "legitimacy_indicators": ["no_solicita_datos_sensibles", "informa_canales_oficiales", "verificacion_parcial_segura"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le habla BBVA. ¿Es usted el titular de la cuenta que termina en 4892?"},
+        {"speaker": "cliente", "text": "Sí, soy yo."},
+        {"speaker": "agente", "text": "Perfecto. Le llamamos para informarle que detectamos un cobro que podría ser inusual en su cuenta del día de hoy. ¿Usted autorizó un cargo de 2,300 pesos en una tienda de electrónica?"},
+        {"speaker": "cliente", "text": "No, no lo autoricé."},
+        {"speaker": "agente", "text": "Entendido. Hemos bloqueado el cargo preventivamente. Para mayor seguridad, le recomendamos cambiar su NIP desde el cajero o desde la app. Nosotros no necesitamos que nos proporcione ningún dato para hacer esto."},
+        {"speaker": "cliente", "text": "¿Qué más debo hacer?"},
+        {"speaker": "agente", "text": "Solo eso. Si necesita más ayuda, comuníquese al número del reverso de su tarjeta o acuda a cualquier sucursal. ¿Tiene alguna otra pregunta?"}
+      ]
+    },
+    {
+      "id": "LEGIT_002",
+      "label": "legitima",
+      "type": "confirmacion_cita",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["sin_solicitud_datos_financieros", "informacion_previamente_proporcionada", "canal_verificable"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla el consultorio del Dr. Martínez. Le llamamos para confirmar su cita de mañana jueves a las 11am."},
+        {"speaker": "cliente", "text": "Sí, ahí estaré."},
+        {"speaker": "agente", "text": "Perfecto. Le recordamos traer su credencial de elector y llegar 10 minutos antes para el llenado de formulario. ¿Tiene alguna pregunta?"},
+        {"speaker": "cliente", "text": "¿Necesito traer algún estudio previo?"},
+        {"speaker": "agente", "text": "Si tiene estudios recientes de los últimos 6 meses, tráigalos. Si no, no es necesario. El doctor los puede solicitar en consulta si los necesita."},
+        {"speaker": "cliente", "text": "Perfecto, muchas gracias."},
+        {"speaker": "agente", "text": "Con gusto. Hasta mañana."}
+      ]
+    },
+    {
+      "id": "LEGIT_003",
+      "label": "legitima",
+      "type": "soporte_real",
+      "risk_score": 0.06,
+      "legitimacy_indicators": ["sin_solicitud_datos_tarjeta", "soluciones_alternativas", "no_urgencia_artificial"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soporte de Telmex, ¿en qué le puedo ayudar?"},
+        {"speaker": "cliente", "text": "Tengo problemas con el internet, lleva dos días sin funcionar correctamente."},
+        {"speaker": "agente", "text": "Lamento el inconveniente. Voy a revisar su línea. ¿Me puede decir el número de contrato o el número de teléfono fijo?"},
+        {"speaker": "cliente", "text": "Es el 55-4455-1122."},
+        {"speaker": "agente", "text": "Ya lo veo. Tenemos un reporte de falla en su zona desde ayer. El equipo técnico está trabajando en ello. El estimado de restablecimiento es esta tarde antes de las 6pm."},
+        {"speaker": "cliente", "text": "¿Hay algo que pueda hacer de mi lado?"},
+        {"speaker": "agente", "text": "Por el momento no, es una falla en la infraestructura. Si pasadas las 6pm no se restablece, llame de nuevo y levantamos un reporte especial. Disculpe las molestias."}
+      ]
+    },
+    {
+      "id": "LEGIT_004",
+      "label": "legitima",
+      "type": "cobranza_legitima",
+      "risk_score": 0.10,
+      "legitimacy_indicators": ["informacion_especifica_verificable", "multiples_canales_pago", "sin_amenazas_exageradas"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le llama Banamex cobranza. Tiene un pago pendiente de su tarjeta de crédito de 1,850 pesos con vencimiento del día 5."},
+        {"speaker": "cliente", "text": "Sí, lo sé, se me pasó este mes."},
+        {"speaker": "agente", "text": "No hay problema. Puede pagarlo en cualquier cajero, tienda Oxxo, desde la app o portal del banco, o en sucursal. ¿Necesita que le confirme su número de cuenta para el pago?"},
+        {"speaker": "cliente", "text": "Sí, por favor."},
+        {"speaker": "agente", "text": "Su número de cuenta es 5204-XXXX-XXXX-4321. El pago mínimo es de 500 pesos pero le recomendamos liquidar el total para evitar intereses."},
+        {"speaker": "cliente", "text": "Hoy en la tarde lo hago."},
+        {"speaker": "agente", "text": "Perfecto, en cuanto se refleje el pago, el estado de su cuenta se regulariza. ¿Hay algo más en lo que pueda ayudarle?"}
+      ]
+    },
+    {
+      "id": "LEGIT_005",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["informacion_publica", "sin_solicitud_accion_urgente", "canal_verificable"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le habla CFE para informarle que habrá un corte programado de luz en su colonia este sábado de 9am a 2pm."},
+        {"speaker": "cliente", "text": "¿Por qué el corte?"},
+        {"speaker": "agente", "text": "Es por mantenimiento preventivo de las redes eléctricas. Le recomendamos apagar equipos sensibles como computadoras antes del corte."},
+        {"speaker": "cliente", "text": "¿Hay algo que necesiten de mi parte?"},
+        {"speaker": "agente", "text": "No, solo tomar precauciones con sus equipos. Si después del corte no regresa la luz, puede reportarlo al número 071 que es gratuito y disponible 24 horas."},
+        {"speaker": "cliente", "text": "De acuerdo, muchas gracias por avisar."},
+        {"speaker": "agente", "text": "Con gusto, que tenga buen día."}
+      ]
+    },
+    {
+      "id": "LEGIT_006",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.07,
+      "legitimacy_indicators": ["verificacion_parcial", "redirige_canales_seguros", "no_solicita_contrasenas"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy de Santander. ¿Es usted el titular de la tarjeta que termina en 7734?"},
+        {"speaker": "cliente", "text": "Sí, soy yo."},
+        {"speaker": "agente", "text": "Le llamamos porque tiene disponible un seguro de protección de compras sin costo adicional. ¿Le gustaría más información?"},
+        {"speaker": "cliente", "text": "¿En qué consiste?"},
+        {"speaker": "agente", "text": "Cubre compras de más de 500 pesos contra robo o daño accidental por 30 días. Es completamente gratuito con su tarjeta. Si desea activarlo, puede hacerlo desde la app de Santander o llamando al número del reverso de su tarjeta."},
+        {"speaker": "cliente", "text": "¿Puedo activarlo por esta llamada?"},
+        {"speaker": "agente", "text": "Le recomiendo hacerlo desde la app para que quede registrado en sus beneficios. ¿Necesita ayuda para encontrarlo en la app?"}
+      ]
+    },
+    {
+      "id": "LEGIT_007",
+      "label": "legitima",
+      "type": "encuesta",
+      "risk_score": 0.05,
+      "legitimacy_indicators": ["participacion_voluntaria", "sin_solicitud_datos_financieros", "identificacion_clara"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla INEGI para una encuesta de percepción ciudadana. ¿Puede dedicarnos 5 minutos?"},
+        {"speaker": "cliente", "text": "Sí, ¿de qué trata?"},
+        {"speaker": "agente", "text": "Es sobre satisfacción con servicios públicos en su zona. No le vamos a pedir datos financieros ni personales sensibles, solo su opinión."},
+        {"speaker": "cliente", "text": "Está bien, adelante."},
+        {"speaker": "agente", "text": "En escala del 1 al 10, ¿cómo calificaría el servicio de recolección de basura en su colonia en los últimos 3 meses?"},
+        {"speaker": "cliente", "text": "Le daría un 7."},
+        {"speaker": "agente", "text": "Gracias. ¿Y el alumbrado público?"}
+      ]
+    },
+    {
+      "id": "LEGIT_008",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["queja_gestionada_sin_datos_extra", "proceso_claro", "sin_urgencia"],
+      "dialogue": [
+        {"speaker": "cliente", "text": "Hola, quiero reportar que pedí una pizza hace una hora y no ha llegado."},
+        {"speaker": "agente", "text": "Lamentamos el inconveniente. ¿Me puede dar su número de pedido o el teléfono con el que ordenó?"},
+        {"speaker": "cliente", "text": "El teléfono es 55-9988-7766."},
+        {"speaker": "agente", "text": "Ya lo veo. Su pedido está en camino, el repartidor lleva 15 minutos de retraso por el tráfico. Llegará en aproximadamente 20 minutos."},
+        {"speaker": "cliente", "text": "¿Hacen algún ajuste por el retraso?"},
+        {"speaker": "agente", "text": "Sí, le aplicamos un cupón de 50 pesos en su próximo pedido como disculpa. ¿Algo más en lo que pueda ayudarle?"},
+        {"speaker": "cliente", "text": "No, muchas gracias."}
+      ]
+    },
+    {
+      "id": "LEGIT_009",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.08,
+      "legitimacy_indicators": ["informacion_preventiva", "sin_solicitud_accion_inmediata", "canales_seguros_recomendados"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla HSBC con información importante sobre su cuenta. ¿Es buen momento?"},
+        {"speaker": "cliente", "text": "Sí, dígame."},
+        {"speaker": "agente", "text": "Le informamos que a partir del próximo mes su tarjeta de débito sin contacto tendrá un límite de 1,000 pesos por transacción por medidas de seguridad."},
+        {"speaker": "cliente", "text": "¿Y si necesito hacer una compra mayor?"},
+        {"speaker": "agente", "text": "Para montos mayores puede insertar la tarjeta con NIP normalmente. La restricción es solo para pagos contactless. No requiere ninguna acción de su parte."},
+        {"speaker": "cliente", "text": "¿Cambia algo más?"},
+        {"speaker": "agente", "text": "No, todo lo demás permanece igual. Si tiene dudas puede consultar la app o llamar al 800-HSBC. ¿Tiene alguna otra pregunta?"}
+      ]
+    },
+    {
+      "id": "LEGIT_010",
+      "label": "legitima",
+      "type": "confirmacion_cita",
+      "risk_score": 0.02,
+      "legitimacy_indicators": ["datos_ya_conocidos", "sin_solicitud_nueva_info_sensible", "facil_verificacion"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le llama el departamento de servicio de Honda Motors. Tiene programado un servicio de su vehículo mañana viernes a las 9am."},
+        {"speaker": "cliente", "text": "Sí, lo recuerdo."},
+        {"speaker": "agente", "text": "Perfecto. Solo para confirmar, es el servicio de 10,000 km de su Civic 2022 plata, ¿correcto?"},
+        {"speaker": "cliente", "text": "Exacto."},
+        {"speaker": "agente", "text": "El tiempo estimado es de 2 horas. Puede esperar en nuestras instalaciones o dejar el auto y regresar. También tenemos servicio de shuttle si lo necesita."},
+        {"speaker": "cliente", "text": "Voy a dejar el auto y regresar en la tarde."},
+        {"speaker": "agente", "text": "Perfecto, lo agendamos así. Hasta mañana."}
+      ]
+    },
+    {
+      "id": "LEGIT_011",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["informacion_factual", "sin_urgencia_financiera", "sin_solicitud_datos"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le llama Izzi para informarle sobre el mantenimiento programado de su servicio este miércoles."},
+        {"speaker": "cliente", "text": "¿A qué hora será?"},
+        {"speaker": "agente", "text": "Entre las 2 y las 5 de la tarde. Puede haber interrupciones breves del servicio durante ese período. El equipo técnico trabajará en la infraestructura de la zona."},
+        {"speaker": "cliente", "text": "¿Necesito hacer algo?"},
+        {"speaker": "agente", "text": "No requiere ninguna acción de su parte. Una vez terminado el mantenimiento, si el servicio no se restablece automáticamente, puede reiniciar su módem. ¿Tiene alguna duda?"},
+        {"speaker": "cliente", "text": "No, gracias por avisar."},
+        {"speaker": "agente", "text": "Con gusto, que tenga buen día."}
+      ]
+    },
+    {
+      "id": "LEGIT_012",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.05,
+      "legitimacy_indicators": ["solicitud_info_minima", "proceso_conocido", "resolucion_sin_pago"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soporte de Amazon México, ¿en qué le puedo ayudar?"},
+        {"speaker": "cliente", "text": "Recibí un paquete dañado, el producto llegó roto."},
+        {"speaker": "agente", "text": "Lamentamos mucho eso. Para ayudarle necesito el número de pedido, ¿lo tiene a la mano?"},
+        {"speaker": "cliente", "text": "Sí, es 302-8877441-1234567."},
+        {"speaker": "agente", "text": "Lo veo aquí. Voy a generar de inmediato la reposición del producto sin costo adicional. Llegará en 3-5 días hábiles. ¿Necesita también el recojo del producto dañado?"},
+        {"speaker": "cliente", "text": "Sí por favor."},
+        {"speaker": "agente", "text": "Listo, el recolector pasará el mismo día que le entreguen el nuevo. ¿Hay algo más en lo que pueda ayudarle?"}
+      ]
+    },
+    {
+      "id": "LEGIT_013",
+      "label": "legitima",
+      "type": "cobranza_legitima",
+      "risk_score": 0.12,
+      "legitimacy_indicators": ["informacion_verificable_pedida", "opciones_multiples_pago", "no_amenazas_ilicitas"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, soy de cobranza de Coppel. Tiene un saldo pendiente de 3,400 pesos de su crédito muebles."},
+        {"speaker": "cliente", "text": "Sí, sé que me atrasé. ¿Qué opciones tengo?"},
+        {"speaker": "agente", "text": "Puede ponerse al corriente pagando el monto vencido de 1,100 pesos correspondiente a dos mensualidades. O si prefiere, podemos reestructurar el crédito."},
+        {"speaker": "cliente", "text": "¿Qué implica la reestructura?"},
+        {"speaker": "agente", "text": "Extendemos el plazo y ajustamos el pago mensual a algo más cómodo para usted. Para analizarlo necesito saber cuánto puede pagar mensualmente."},
+        {"speaker": "cliente", "text": "Puedo pagar unos 600 al mes."},
+        {"speaker": "agente", "text": "Con eso podemos extender el crédito a 18 meses. ¿Quiere que le envíe la propuesta por escrito para que la revise con calma?"}
+      ]
+    },
+    {
+      "id": "LEGIT_014",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.06,
+      "legitimacy_indicators": ["alertas_reales", "sin_solicitud_datos_credenciales", "instrucciones_sin_urgencia_falsa"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla Banorte. ¿Usted intentó registrar un nuevo dispositivo en su banca en línea hace unos minutos?"},
+        {"speaker": "cliente", "text": "No, no fui yo."},
+        {"speaker": "agente", "text": "Entendido. Hemos bloqueado el intento preventivamente. Le recomendamos cambiar su contraseña de banca en línea a la brevedad desde un dispositivo seguro."},
+        {"speaker": "cliente", "text": "¿Cómo hago eso?"},
+        {"speaker": "agente", "text": "Puede hacerlo desde la app oficial de Banorte o en banorte.com. No necesita proporcionarnos ningún dato por esta llamada. ¿Necesita ayuda para ubicar la opción en la app?"},
+        {"speaker": "cliente", "text": "Creo que puedo hacerlo. ¿Debo reportar algo más?"},
+        {"speaker": "agente", "text": "Con cambiar la contraseña es suficiente. Si detecta algún movimiento extraño, repórtelo al 800-BANORTE. ¿Tiene alguna otra pregunta?"}
+      ]
+    },
+    {
+      "id": "LEGIT_015",
+      "label": "legitima",
+      "type": "confirmacion_cita",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["informacion_ya_dada", "proceso_estandar", "verificacion_simple"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, soy de la Embajada Americana. Le llamo para confirmar su cita de visado del próximo lunes 15 de julio a las 8:30am."},
+        {"speaker": "cliente", "text": "Sí, ahí estaré."},
+        {"speaker": "agente", "text": "Recuerde traer todos los documentos listados en el correo de confirmación. En especial el pasaporte vigente, fotos y el comprobante de pago de la visa."},
+        {"speaker": "cliente", "text": "¿Puedo llevar mis documentos en copia o deben ser originales?"},
+        {"speaker": "agente", "text": "Originales más una copia de cada uno. Si tiene dudas sobre los documentos específicos, consulte la página oficial de la embajada o el correo de confirmación que le enviamos."},
+        {"speaker": "cliente", "text": "Entendido, muchas gracias."},
+        {"speaker": "agente", "text": "Con gusto, hasta el lunes."}
+      ]
+    },
+    {
+      "id": "LEGIT_016",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["no_solicita_nada", "informacion_util", "verificable"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla su operador de telefonía. Le informamos que su plan cambia el próximo mes con mejoras en los datos."},
+        {"speaker": "cliente", "text": "¿Cambia el precio?"},
+        {"speaker": "agente", "text": "No, el precio es el mismo. Solo hay mejora en los datos incluidos: de 15GB pasa a 20GB. También se agrega servicio de streaming incluido."},
+        {"speaker": "cliente", "text": "¿Necesito hacer algo para activar el cambio?"},
+        {"speaker": "agente", "text": "No, es automático. A partir del día de su próxima facturación ya tendrá los nuevos beneficios. Puede verlo en la app de Movistar una vez activo."},
+        {"speaker": "cliente", "text": "Perfecto, gracias."},
+        {"speaker": "agente", "text": "Con gusto. ¿Tiene alguna duda sobre el nuevo plan?"}
+      ]
+    },
+    {
+      "id": "LEGIT_017",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.09,
+      "legitimacy_indicators": ["datos_parciales_verificacion", "redirige_canal_seguro", "proceso_real"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, le habla el área de beneficios de Citibanamex. ¿Tiene un momento?"},
+        {"speaker": "cliente", "text": "Sí, dígame."},
+        {"speaker": "agente", "text": "Le informamos que tiene puntos ThankYou acumulados por 45,000 puntos que vencen el mes próximo. ¿Le gustaría saber cómo usarlos?"},
+        {"speaker": "cliente", "text": "¿Cómo puedo usarlos?"},
+        {"speaker": "agente", "text": "Puede canjearlos por estados de cuenta, viajes, Amazon, o donaciones. Todo se hace desde la app de Citibanamex o en citibanamex.com en la sección de beneficios."},
+        {"speaker": "cliente", "text": "¿Pueden ayudarme a canjearlos por teléfono?"},
+        {"speaker": "agente", "text": "Sí, si gusta, puedo conectarle con el área de ThankYou. Solo necesitaré verificar su identidad con dos preguntas de seguridad. ¿Desea que le transfiera?"}
+      ]
+    },
+    {
+      "id": "LEGIT_018",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.05,
+      "legitimacy_indicators": ["gestion_queja_estandar", "informacion_minima", "resolucion_directa"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Soporte de Uber Eats, ¿en qué le ayudo?"},
+        {"speaker": "cliente", "text": "Mi pedido llegó incompleto, faltó una orden de alitas."},
+        {"speaker": "agente", "text": "Lamento eso. Voy a revisar su pedido. ¿Puede decirme el número de pedido o el email de su cuenta?"},
+        {"speaker": "cliente", "text": "Mi email es usuario@gmail.com."},
+        {"speaker": "agente", "text": "Ya lo veo. Le voy a realizar el reembolso del artículo faltante en su método de pago original en los próximos 3-5 días."},
+        {"speaker": "cliente", "text": "¿Pueden enviarlo nuevamente en vez de reembolso?"},
+        {"speaker": "agente", "text": "En este caso el restaurante ya cerró la orden, pero puedo ofrecerle crédito en Uber Eats en vez del reembolso si prefiere usarlo más rápido. ¿Qué prefiere?"}
+      ]
+    },
+    {
+      "id": "LEGIT_019",
+      "label": "legitima",
+      "type": "cobranza_legitima",
+      "risk_score": 0.11,
+      "legitimacy_indicators": ["documentacion_real", "proceso_transparente", "informacion_verificable"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, soy del área de recuperación de cartera de Grupo Financiero Banorte. ¿Es usted el titular del crédito personal?"},
+        {"speaker": "cliente", "text": "Sí, ¿qué pasó?"},
+        {"speaker": "agente", "text": "Tiene un adeudo de 4,200 pesos con 45 días de atraso. Antes de iniciar un proceso más formal, queremos ofrecerle opciones de pago."},
+        {"speaker": "cliente", "text": "¿Qué opciones hay?"},
+        {"speaker": "agente", "text": "Puede pagar el total y congelamos los intereses desde hoy, o hacer un pago inicial del 30% y el resto en 3 mensualidades sin cargo extra."},
+        {"speaker": "cliente", "text": "¿Me pueden enviar por escrito la propuesta?"},
+        {"speaker": "agente", "text": "Por supuesto, ¿a qué correo se lo envío? Y si prefiere llamarnos para confirmar, el número oficial es el del estado de cuenta."}
+      ]
+    },
+    {
+      "id": "LEGIT_020",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.07,
+      "legitimacy_indicators": ["alertas_reales_transaccionales", "no_pide_datos_sensibles", "opciones_seguras"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla Baz. ¿Realizó usted una transferencia de 5,000 pesos hace 10 minutos?"},
+        {"speaker": "cliente", "text": "Sí, la hice yo a mi hermano."},
+        {"speaker": "agente", "text": "Perfecto, solo llamamos para confirmar por ser un monto inusual para su perfil de uso. Queda registrada como autorizada."},
+        {"speaker": "cliente", "text": "¿Necesitan algo más de mi parte?"},
+        {"speaker": "agente", "text": "No, con su confirmación es suficiente. Si en algún momento detecta un movimiento que no reconozca, puede reportarlo directamente desde la app o llamando a este mismo número. ¿Tiene alguna pregunta?"},
+        {"speaker": "cliente", "text": "No, gracias por verificar."},
+        {"speaker": "agente", "text": "Con gusto. Que tenga buen día."}
+      ]
+    },
+    {
+      "id": "LEGIT_021",
+      "label": "legitima",
+      "type": "confirmacion_cita",
+      "risk_score": 0.02,
+      "legitimacy_indicators": ["sin_datos_financieros", "proceso_simple", "informacion_conocida"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla el laboratorio CliniBio. Le confirmamos su análisis de sangre para mañana a las 7am en ayunas."},
+        {"speaker": "cliente", "text": "Sí, lo recuerdo."},
+        {"speaker": "agente", "text": "Recuerde 8 horas de ayuno y puede tomar solo agua. Traiga su identificación oficial y la orden médica si la tiene."},
+        {"speaker": "cliente", "text": "¿También valen vitaminas o pastillas con agua?"},
+        {"speaker": "agente", "text": "Depende del análisis. Le recomendamos consultar con su médico o llamarnos mañana temprano. En general, para los análisis básicos, preferible sin medicamentos también. ¿Tiene otra duda?"},
+        {"speaker": "cliente", "text": "No, ya. Muchas gracias."}
+      ]
+    },
+    {
+      "id": "LEGIT_022",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["respuesta_consulta_simple", "no_solicita_datos_extra", "soluciona_directamente"],
+      "dialogue": [
+        {"speaker": "cliente", "text": "Hola, quisiera saber el horario de su sucursal en Insurgentes."},
+        {"speaker": "agente", "text": "Claro. La sucursal de Insurgentes Sur atiende de lunes a sábado de 9am a 6pm y domingos de 10am a 3pm."},
+        {"speaker": "cliente", "text": "¿Y mañana que es día festivo?"},
+        {"speaker": "agente", "text": "Mañana al ser día festivo, la sucursal cierra. Puede usar cualquiera de nuestros cajeros que están disponibles las 24 horas, o la app para operaciones digitales."},
+        {"speaker": "cliente", "text": "¿Hay cajero en esa misma sucursal?"},
+        {"speaker": "agente", "text": "Sí, hay dos cajeros en la entrada. También hay cajero en el centro comercial del mismo edificio, que tiene acceso diferente."}
+      ]
+    },
+    {
+      "id": "LEGIT_023",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["aviso_preventivo", "informacion_publica", "sin_urgencia_financiera"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla el SACMEX. Le informamos que habrá corte de agua en su delegación el martes de 6am a 6pm."},
+        {"speaker": "cliente", "text": "¿Por qué el corte?"},
+        {"speaker": "agente", "text": "Trabajos de rehabilitación de la red de distribución. Le recomendamos almacenar agua suficiente para el día."},
+        {"speaker": "cliente", "text": "¿Hay algo que necesiten de mi parte?"},
+        {"speaker": "agente", "text": "Solo estar preparado con agua almacenada. Cualquier consulta puede llamar al 55-5654-3210 que es la línea gratuita del SACMEX. No necesita hacer ningún pago ni trámite por este aviso."},
+        {"speaker": "cliente", "text": "Gracias por avisar."},
+        {"speaker": "agente", "text": "Con gusto."}
+      ]
+    },
+    {
+      "id": "LEGIT_024",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.08,
+      "legitimacy_indicators": ["proceso_conocido", "no_urgencia", "educacion_usuario"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le llama BBVA. Recientemente realizó una transferencia y queremos compartirle información sobre nuevas funciones de seguridad."},
+        {"speaker": "cliente", "text": "Sí, ¿qué tienen?"},
+        {"speaker": "agente", "text": "Desde este mes puede activar confirmación biométrica para transferencias mayores de 3,000 pesos. Lo puede hacer desde la app en Configuración, Seguridad."},
+        {"speaker": "cliente", "text": "¿Es obligatorio activarlo?"},
+        {"speaker": "agente", "text": "No es obligatorio, es opcional. Pero le da una capa extra de protección. No requerimos ningún dato por esta llamada, solo informarle de la nueva función."},
+        {"speaker": "cliente", "text": "Lo voy a ver en la app luego."},
+        {"speaker": "agente", "text": "Perfecto. Si necesita ayuda para activarlo, puede llamar al número del reverso de su tarjeta o usar el chat de la app. ¿Algo más?"}
+      ]
+    },
+    {
+      "id": "LEGIT_025",
+      "label": "legitima",
+      "type": "cobranza_legitima",
+      "risk_score": 0.10,
+      "legitimacy_indicators": ["datos_previos_cliente", "opciones_multiples", "sin_presion_excesiva"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buen día, soy de American Express México. Tiene un pago de 2,600 pesos vencido hace 10 días."},
+        {"speaker": "cliente", "text": "Sí, lo tenía olvidado. ¿Cómo lo regularizo?"},
+        {"speaker": "agente", "text": "Puede pagar en línea en americanexpress.com.mx, en cualquier OXXO con el número de convenio, transferencia bancaria o en sucursal Banamex."},
+        {"speaker": "cliente", "text": "¿Hay algún cargo por interés?"},
+        {"speaker": "agente", "text": "Se generó un cargo por pago tardío de 250 pesos. Si liquida antes del viernes, no hay más cargos adicionales. ¿Necesita que le envíe el estado de cuenta actualizado?"},
+        {"speaker": "cliente", "text": "Sí por favor, al correo que tienen registrado."},
+        {"speaker": "agente", "text": "Se lo enviamos en los próximos 30 minutos. ¿Hay algo más?"}
+      ]
+    },
+    {
+      "id": "LEGIT_026",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.06,
+      "legitimacy_indicators": ["verificacion_segura_preguntas", "sin_datos_tarjeta", "redirige_canales_oficiales"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy Ana de Scotiabank en el área de fidelización. ¿Tiene un momento?"},
+        {"speaker": "cliente", "text": "Sí, dígame."},
+        {"speaker": "agente", "text": "Tiene disponible una mejora de cuenta sin costo adicional que amplía sus retiros sin comisión. ¿Le gustaría activarla?"},
+        {"speaker": "cliente", "text": "¿Qué datos necesitan?"},
+        {"speaker": "agente", "text": "Solo verificar su identidad con su fecha de nacimiento y las últimas 4 cifras de su número de cliente, que aparecen en su estado de cuenta. No necesitamos número de tarjeta ni contraseñas."},
+        {"speaker": "cliente", "text": "De acuerdo, mi fecha de nacimiento es 15 de marzo de 1985."},
+        {"speaker": "agente", "text": "Perfecto. ¿Y los últimos 4 dígitos de su número de cliente?"}
+      ]
+    },
+    {
+      "id": "LEGIT_027",
+      "label": "legitima",
+      "type": "encuesta",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["no_datos_financieros", "participacion_voluntaria", "empresa_verificable"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla Kantar para una encuesta sobre hábitos de consumo. ¿Tiene 8 minutos?"},
+        {"speaker": "cliente", "text": "Depende, ¿de qué es?"},
+        {"speaker": "agente", "text": "Sobre sus hábitos de compra de alimentos y bebidas. No le pedimos datos bancarios ni personales sensibles, solo sus preferencias de consumo."},
+        {"speaker": "cliente", "text": "Está bien."},
+        {"speaker": "agente", "text": "¿Con qué frecuencia compra en supermercado? ¿Una o más veces a la semana, cada dos semanas, o mensualmente?"},
+        {"speaker": "cliente", "text": "Aproximadamente una vez a la semana."},
+        {"speaker": "agente", "text": "¿Y en ese caso, cuál supermercado visita con mayor frecuencia?"}
+      ]
+    },
+    {
+      "id": "LEGIT_028",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.05,
+      "legitimacy_indicators": ["aviso_sin_accion_requerida", "proceso_automatico", "empresa_verificable"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla Netflix. Le informamos que su plan de servicio se actualiza el próximo mes."},
+        {"speaker": "cliente", "text": "¿Aumenta el precio?"},
+        {"speaker": "agente", "text": "Su plan pasa de 199 a 219 pesos mensuales, con mejora en calidad de video a 4K en todos los dispositivos. El cambio es automático en su próxima facturación."},
+        {"speaker": "cliente", "text": "¿Puedo quedarme en el plan anterior?"},
+        {"speaker": "agente", "text": "El plan anterior se discontinúa. Si prefiere un plan más económico, hay el plan estándar a 179 pesos. Puede cambiarlo desde su cuenta en netflix.com. No necesita llamarnos, todo se hace en línea."},
+        {"speaker": "cliente", "text": "Lo voy a revisar."},
+        {"speaker": "agente", "text": "Perfecto. ¿Hay algo más en lo que pueda ayudarle?"}
+      ]
+    },
+    {
+      "id": "LEGIT_029",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["queja_estandar", "proceso_normal", "sin_recopilacion_datos_extra"],
+      "dialogue": [
+        {"speaker": "cliente", "text": "Llamo porque me cobraron doble en mi recibo de agua de este mes."},
+        {"speaker": "agente", "text": "Con gusto le ayudo. ¿Me puede dar el número de contrato que aparece en su recibo?"},
+        {"speaker": "cliente", "text": "Es el 442-887-21."},
+        {"speaker": "agente", "text": "Ya lo veo. Efectivamente hay un cargo duplicado del mes de abril. Voy a generar una nota de crédito que se verá reflejada en su próximo recibo."},
+        {"speaker": "cliente", "text": "¿Cuándo se aplica?"},
+        {"speaker": "agente", "text": "En el recibo del siguiente mes. Si prefiere el reembolso directo, puede solicitarlo en cualquier oficina con su identificación y este recibo. Le damos un folio de su reporte: 2024-44782."},
+        {"speaker": "cliente", "text": "Con el crédito está bien. Gracias."}
+      ]
+    },
+    {
+      "id": "LEGIT_030",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.08,
+      "legitimacy_indicators": ["informacion_preventiva_real", "no_solicita_datos_criticos", "educa_sobre_fraudes"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla Banregio para una llamada de concientización sobre fraudes digitales."},
+        {"speaker": "cliente", "text": "¿De qué se trata?"},
+        {"speaker": "agente", "text": "Hemos detectado un incremento de llamadas fraudulentas haciéndose pasar por el banco. Queremos recordarle que nosotros NUNCA pedimos su NIP, contraseñas ni tokens por teléfono."},
+        {"speaker": "cliente", "text": "Qué bien que avisan."},
+        {"speaker": "agente", "text": "Si alguien le llama pidiendo esos datos, es un fraude. Puede colgar y llamar al número oficial del reverso de su tarjeta para verificar cualquier situación. ¿Tiene alguna pregunta sobre cómo identificar fraudes?"},
+        {"speaker": "cliente", "text": "¿Qué más piden los estafadores?"},
+        {"speaker": "agente", "text": "Principalmente tokens de un solo uso, contraseñas de banca en línea y datos completos de tarjetas. Ningún banco legítimo solicita eso por teléfono."}
+      ]
+    },
+    {
+      "id": "LEGIT_031",
+      "label": "legitima",
+      "type": "confirmacion_cita",
+      "risk_score": 0.02,
+      "legitimacy_indicators": ["datos_proporcionados_previamente", "sin_solicitud_nueva_info", "proceso_simple"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, recordatorio de Cetelem para su visita a la sucursal mañana a las 12pm para firmar su contrato de crédito automotriz."},
+        {"speaker": "cliente", "text": "Sí, ya lo tengo agendado."},
+        {"speaker": "agente", "text": "Recuerde traer identificación oficial vigente, comprobante de ingresos reciente y comprobante de domicilio. Los documentos que ya revisamos en el proceso."},
+        {"speaker": "cliente", "text": "¿Necesito llevar el avalúo del auto también?"},
+        {"speaker": "agente", "text": "Sí, si ya lo tiene, tráigalo. Si no, nosotros lo gestionamos en el momento. El proceso en sucursal dura aproximadamente 1 hora."},
+        {"speaker": "cliente", "text": "Perfecto, ahí estaré. Muchas gracias."},
+        {"speaker": "agente", "text": "Con gusto, hasta mañana."}
+      ]
+    },
+    {
+      "id": "LEGIT_032",
+      "label": "legitima",
+      "type": "cobranza_legitima",
+      "risk_score": 0.09,
+      "legitimacy_indicators": ["solo_numero_cuenta_confirmado", "multiples_opciones", "sin_presion"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, soy de cobranza de Banco Azteca. Tiene un adeudo en su crédito de nómina de 1,200 pesos."},
+        {"speaker": "cliente", "text": "¿De cuándo es ese adeudo?"},
+        {"speaker": "agente", "text": "Corresponde al mes de marzo, el cargo automático no se procesó porque hubo un error al aplicar su nómina."},
+        {"speaker": "cliente", "text": "¿Cómo lo pago?"},
+        {"speaker": "agente", "text": "En cualquier tienda Elektra, en cajeros del banco, o puede reactivar el débito automático desde la app. No hay cargo adicional si lo liquida esta semana."},
+        {"speaker": "cliente", "text": "Lo hago mañana en la tienda más cercana."},
+        {"speaker": "agente", "text": "Perfecto. Su número de crédito es el que aparece en su contrato. ¿Tiene alguna otra pregunta?"}
+      ]
+    },
+    {
+      "id": "LEGIT_033",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.07,
+      "legitimacy_indicators": ["verificacion_minima", "informacion_no_critica", "no_presion"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy del área de relaciones con clientes de HSBC. ¿Tiene un minuto?"},
+        {"speaker": "cliente", "text": "Sí."},
+        {"speaker": "agente", "text": "Queremos informarle que tiene una inversión en Cetes Directo que vence el próximo mes. ¿Ha pensado en renovarla?"},
+        {"speaker": "cliente", "text": "¿Qué tasas hay actualmente?"},
+        {"speaker": "agente", "text": "Las tasas actuales las puede ver en la app de HSBC en la sección de inversiones, o puedo transferirle con un asesor especializado si prefiere. No necesita tomar ninguna decisión ahora."},
+        {"speaker": "cliente", "text": "¿Qué pasa si no hago nada?"},
+        {"speaker": "agente", "text": "El monto y rendimientos se depositan automáticamente en su cuenta al vencimiento. La decisión de renovar es completamente suya, sin ningún trámite urgente."}
+      ]
+    },
+    {
+      "id": "LEGIT_034",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["proceso_estandar", "sin_datos_extra", "resolucion_directa"],
+      "dialogue": [
+        {"speaker": "cliente", "text": "Hola, compré un medicamento en su farmacia y me dieron la dosis incorrecta."},
+        {"speaker": "agente", "text": "Lamentamos mucho eso. ¿Puede decirnos qué medicamento era y qué dosis le dieron versus la prescrita?"},
+        {"speaker": "cliente", "text": "Me recetaron Metformina 850mg y me entregaron 500mg."},
+        {"speaker": "agente", "text": "Entendido. Para el cambio puede acudir a cualquiera de nuestras sucursales con el ticket de compra y la caja del medicamento que le entregamos. Le haremos el cambio sin costo."},
+        {"speaker": "cliente", "text": "¿Puedo ir a una sucursal diferente a donde compré?"},
+        {"speaker": "agente", "text": "Sí, cualquier sucursal Farmacia del Ahorro puede hacer el cambio. Le recomendamos ir lo antes posible para no interrumpir su tratamiento."}
+      ]
+    },
+    {
+      "id": "LEGIT_035",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["informacion_neutral", "no_solicita_datos", "canal_verificable"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buen día, le habla Sky para informarle de una actualización del decodificador que se realizará automáticamente esta madrugada."},
+        {"speaker": "cliente", "text": "¿Hay algo que deba hacer?"},
+        {"speaker": "agente", "text": "Solo dejar el decodificador conectado a la corriente y a internet si lo tiene. La actualización es automática y dura aproximadamente 15 minutos entre las 2 y las 4am."},
+        {"speaker": "cliente", "text": "¿Y si lo apago en la noche?"},
+        {"speaker": "agente", "text": "Si lo apaga con el control remoto, el equipo sigue en modo standby y la actualización se aplica igual. Si desconecta de la corriente, la actualización se aplica la siguiente vez que lo encienda."},
+        {"speaker": "cliente", "text": "Perfecto, gracias por avisar."}
+      ]
+    },
+    {
+      "id": "LEGIT_036",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.10,
+      "legitimacy_indicators": ["seguimiento_solicitud_previo", "verificacion_estandar", "no_datos_tarjeta"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy de Afirme. Le llamo para dar seguimiento a su solicitud de crédito personal que hizo la semana pasada."},
+        {"speaker": "cliente", "text": "Sí, ¿ya salió la resolución?"},
+        {"speaker": "agente", "text": "Fue aprobada por 80,000 pesos. Para continuar el proceso, necesitamos que acuda a una sucursal con identificación y comprobante de ingresos para firmar el contrato."},
+        {"speaker": "cliente", "text": "¿Puedo hacer algo en línea?"},
+        {"speaker": "agente", "text": "La firma del contrato debe ser presencial. Una vez firmado, el depósito se hace en 24 horas en la cuenta que ya registró en la solicitud. ¿Tiene alguna duda sobre el proceso?"},
+        {"speaker": "cliente", "text": "¿Cuánto tiempo tengo para ir a firmar?"},
+        {"speaker": "agente", "text": "La aprobación tiene vigencia de 30 días naturales. Puede ir cuando le convenga dentro de ese plazo."}
+      ]
+    },
+    {
+      "id": "LEGIT_037",
+      "label": "legitima",
+      "type": "encuesta",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["empresa_conocida", "solo_opiniones", "sin_datos_sensibles"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, soy del área de calidad de Liverpool. ¿Realizó una compra con nosotros el mes pasado?"},
+        {"speaker": "cliente", "text": "Sí, compré una lavadora."},
+        {"speaker": "agente", "text": "¿Podría calificar su experiencia de compra del 1 al 10?"},
+        {"speaker": "cliente", "text": "Le doy un 8."},
+        {"speaker": "agente", "text": "¿Qué podríamos mejorar?"},
+        {"speaker": "cliente", "text": "El tiempo de espera en caja fue largo."},
+        {"speaker": "agente", "text": "Tomamos nota, muchas gracias. ¿Le llegó el producto en buen estado y en tiempo?"},
+        {"speaker": "cliente", "text": "Sí, todo bien con la entrega."},
+        {"speaker": "agente", "text": "Excelente. Eso es todo, gracias por su tiempo y por comprar con nosotros."}
+      ]
+    },
+    {
+      "id": "LEGIT_038",
+      "label": "legitima",
+      "type": "cobranza_legitima",
+      "risk_score": 0.11,
+      "legitimacy_indicators": ["proceso_transparente", "documentacion_ofrecida", "opciones_claras"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, soy del área legal de Fondo Nacional de Pensiones. Tiene un adeudo en su crédito hipotecario de 8 meses."},
+        {"speaker": "cliente", "text": "Sí, pasé por una situación difícil. ¿Qué opciones tengo?"},
+        {"speaker": "agente", "text": "Podemos ofrecerle una reestructura: paga el 20% del adeudo ahora y el resto en un plan de 24 meses sin penalizaciones adicionales."},
+        {"speaker": "cliente", "text": "¿Puedo revisarlo con mi pareja antes de decidir?"},
+        {"speaker": "agente", "text": "Por supuesto. Le mando por correo los detalles del plan para que lo revisen con calma. La oferta está vigente hasta fin de mes. ¿A qué correo le envío?"},
+        {"speaker": "cliente", "text": "Al que tienen registrado en el expediente."},
+        {"speaker": "agente", "text": "Perfecto, se lo enviamos hoy. Si tiene dudas, llame al número de contacto del estado de cuenta. ¿Hay algo más?"}
+      ]
+    },
+    {
+      "id": "LEGIT_039",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["datos_minimos_solicitados", "solucion_directa", "no_urgencia"],
+      "dialogue": [
+        {"speaker": "cliente", "text": "Hola, quiero cancelar mi suscripción a su servicio de streaming."},
+        {"speaker": "agente", "text": "Claro, con gusto le ayudo. ¿Me puede decir el correo electrónico con el que está registrado?"},
+        {"speaker": "cliente", "text": "Es correo@ejemplo.com."},
+        {"speaker": "agente", "text": "Lo veo aquí. ¿Está seguro de querer cancelar? Tiene 45 días de suscripción restante en este período."},
+        {"speaker": "cliente", "text": "Sí, por favor cancélela."},
+        {"speaker": "agente", "text": "Listo, su suscripción está cancelada. Puede seguir usando el servicio hasta el día en que vence el período actual. No hay cargos adicionales. ¿Necesita algo más?"},
+        {"speaker": "cliente", "text": "No, gracias."}
+      ]
+    },
+    {
+      "id": "LEGIT_040",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.06,
+      "legitimacy_indicators": ["llamada_reactiva", "informacion_basica", "sin_datos_sensibles"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le devuelvo la llamada de la sucursal HSBC Insurgentes. ¿En qué le puedo ayudar?"},
+        {"speaker": "cliente", "text": "Pregunté por los requisitos para abrir una cuenta empresarial."},
+        {"speaker": "agente", "text": "Para persona moral necesita: acta constitutiva, poderes notariales, RFC empresarial, comprobante de domicilio fiscal e identificación de los representantes legales."},
+        {"speaker": "cliente", "text": "¿Cuánto tiempo tarda el proceso?"},
+        {"speaker": "agente", "text": "Una vez que trae todos los documentos, la apertura se completa en la misma visita. En unos 2-3 días hábiles recibe los accesos a banca en línea empresarial."},
+        {"speaker": "cliente", "text": "¿Hay comisión por apertura?"},
+        {"speaker": "agente", "text": "No hay costo de apertura. Le recomendamos agendar una cita para que no espere. ¿Quiere que le diga cómo agendar en línea?"}
+      ]
+    },
+    {
+      "id": "LEGIT_041",
+      "label": "legitima",
+      "type": "confirmacion_cita",
+      "risk_score": 0.02,
+      "legitimacy_indicators": ["info_conocida_previamente", "sin_accion_financiera", "verificacion_simple"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, recordatorio de la Notaría 45. Su firma de escrituras está programada para el miércoles a las 10am."},
+        {"speaker": "cliente", "text": "Sí, tengo la cita anotada."},
+        {"speaker": "agente", "text": "Recuerde traer identificación oficial vigente de todos los firmantes y los cheques certificados que le indicamos en la reunión previa."},
+        {"speaker": "cliente", "text": "¿El cheque debe ser a nombre de quién?"},
+        {"speaker": "agente", "text": "A nombre del vendedor, tal como aparece en el contrato promisorio. Si tiene duda del nombre exacto, llame a la notaría al número que ya le proporcionamos. No necesita traer ningún documento adicional."},
+        {"speaker": "cliente", "text": "Perfecto. Hasta el miércoles."}
+      ]
+    },
+    {
+      "id": "LEGIT_042",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.05,
+      "legitimacy_indicators": ["aviso_cambio_precio", "sin_urgencia", "opciones_disponibles"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla Megacable. A partir del próximo mes hay un ajuste de 30 pesos en su plan mensual."},
+        {"speaker": "cliente", "text": "¿Por qué el aumento?"},
+        {"speaker": "agente", "text": "Es un ajuste por inflación y mejoras en la infraestructura. Su plan pasa de 499 a 529 pesos con los mismos servicios incluidos."},
+        {"speaker": "cliente", "text": "¿Puedo mantener el precio actual?"},
+        {"speaker": "agente", "text": "Si lo desea, puede cambiar a un plan diferente o solicitar una revisión en sucursal. También puede llamar al 800-Megacable para explorar opciones. El cambio no aplica si cancela antes del 30 de este mes."},
+        {"speaker": "cliente", "text": "Lo voy a pensar."},
+        {"speaker": "agente", "text": "Claro, tómese su tiempo. ¿Hay algo más en lo que le pueda ayudar?"}
+      ]
+    },
+    {
+      "id": "LEGIT_043",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.07,
+      "legitimacy_indicators": ["alerta_real_transaccion", "no_pide_datos_sensibles", "informa_pasos_seguros"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, le habla Banbajío. ¿Realizó un pago en línea de 1,800 pesos en una tienda de ropa hace 5 minutos?"},
+        {"speaker": "cliente", "text": "No, no lo hice."},
+        {"speaker": "agente", "text": "Vamos a bloquear esa transacción. También le recomendamos cambiar su contraseña de banca en línea desde la app oficial del banco en cuanto pueda."},
+        {"speaker": "cliente", "text": "¿Necesito hacer algo más?"},
+        {"speaker": "agente", "text": "Le enviaremos un correo con los pasos para revisar la seguridad de su cuenta. No necesita proporcionarnos ningún dato por esta llamada. ¿Tiene acceso a su correo registrado?"},
+        {"speaker": "cliente", "text": "Sí, lo reviso ahorita."},
+        {"speaker": "agente", "text": "Perfecto. Si tiene alguna duda, llame al número del reverso de su tarjeta. ¿Hay algo más?"}
+      ]
+    },
+    {
+      "id": "LEGIT_044",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["atencion_directa", "solucion_sin_datos_extra", "proceso_conocido"],
+      "dialogue": [
+        {"speaker": "cliente", "text": "Hola, llamo porque me llegó un cobro en mi tarjeta de una tienda donde no compré."},
+        {"speaker": "agente", "text": "Le ayudo con eso. Para hacer el reporte de cargo no reconocido necesito su número de tarjeta terminado en cuatro dígitos, ¿cuáles son?"},
+        {"speaker": "cliente", "text": "Termina en 4821."},
+        {"speaker": "agente", "text": "Lo veo. El cargo es por 650 pesos. ¿Puede confirmar que no lo autorizó usted ni ningún familiar que use su tarjeta?"},
+        {"speaker": "cliente", "text": "Correcto, no lo reconozco."},
+        {"speaker": "agente", "text": "Listo, hemos abierto un proceso de disputa. Se resuelve en 5 días hábiles. Si se confirma que es fraude, se le reembolsa el monto completo. ¿Quiere que también bloqueemos la tarjeta y generemos una nueva?"}
+      ]
+    },
+    {
+      "id": "LEGIT_045",
+      "label": "legitima",
+      "type": "cobranza_legitima",
+      "risk_score": 0.09,
+      "legitimacy_indicators": ["informacion_verificable", "no_amenazas_falsas", "proceso_institucional"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenos días, cobranza de Chedraui. Tiene un adeudo en su tarjeta de crédito de la tienda de 2,100 pesos vencido."},
+        {"speaker": "cliente", "text": "¿Cuándo venció?"},
+        {"speaker": "agente", "text": "El pasado día 12. Puede pagar en cualquier tienda Chedraui en la caja, en la app de Chedraui o por transferencia bancaria. Si paga esta semana, no se genera cargo por mora adicional."},
+        {"speaker": "cliente", "text": "¿Puedo hacer un pago parcial?"},
+        {"speaker": "agente", "text": "Sí, el pago mínimo es de 350 pesos, aunque recomendamos liquidar el total para evitar intereses. ¿Tiene alguna pregunta sobre el estado de su cuenta?"},
+        {"speaker": "cliente", "text": "¿Pueden enviarme el estado de cuenta por correo?"},
+        {"speaker": "agente", "text": "Sí, lo enviamos al correo registrado. ¿Desea que lo generemos ahora mismo?"}
+      ]
+    },
+    {
+      "id": "LEGIT_046",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.08,
+      "legitimacy_indicators": ["proceso_real_upgrade", "sin_datos_sensibles", "redirige_canales_seguros"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy del área de tarjetas de Banorte. Tiene disponible una actualización a tarjeta Platino sin costo adicional."},
+        {"speaker": "cliente", "text": "¿Qué beneficios tiene?"},
+        {"speaker": "agente", "text": "Seguro de viaje, acceso a salas VIP en aeropuertos y cashback del 2% en gasolina. La anualidad se absorbe por su historial de pagos."},
+        {"speaker": "cliente", "text": "¿Cómo la activo?"},
+        {"speaker": "agente", "text": "Puede hacerlo en la app de Banorte, en la sección de tarjetas, o llamar al número del reverso. Nosotros no procesamos cambios por esta línea entrante por seguridad."},
+        {"speaker": "cliente", "text": "¿Cuánto tiempo tengo para decidir?"},
+        {"speaker": "agente", "text": "La oferta está disponible hasta fin de mes. No hay presión, puede tomarse su tiempo para evaluarlo."}
+      ]
+    },
+    {
+      "id": "LEGIT_047",
+      "label": "legitima",
+      "type": "notificacion_servicio",
+      "risk_score": 0.04,
+      "legitimacy_indicators": ["informacion_sin_accion_requerida", "empresa_verificable", "sin_urgencia"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Buenas tardes, le habla Spotify. Le avisamos que el cargo mensual de su suscripción cambia el próximo ciclo."},
+        {"speaker": "cliente", "text": "¿Cuánto cambia?"},
+        {"speaker": "agente", "text": "Su plan Premium individual pasa de 99 a 119 pesos al mes. Si desea gestionar su suscripción, puede hacerlo en spotify.com/account."},
+        {"speaker": "cliente", "text": "¿Puedo cambiar a un plan familiar para repartir el costo?"},
+        {"speaker": "agente", "text": "Sí, el plan familiar tiene un precio diferente y cubre hasta 6 cuentas. Lo puede revisar y cambiar directamente desde su cuenta en el sitio. No necesita proporcionarnos ningún dato por esta llamada."},
+        {"speaker": "cliente", "text": "Muy bien, lo reviso luego."},
+        {"speaker": "agente", "text": "Perfecto. ¿Algo más?"}
+      ]
+    },
+    {
+      "id": "LEGIT_048",
+      "label": "legitima",
+      "type": "servicio_al_cliente",
+      "risk_score": 0.05,
+      "legitimacy_indicators": ["atencion_estandar", "resolucion_sin_datos_extras", "no_presion"],
+      "dialogue": [
+        {"speaker": "cliente", "text": "Hola, quisiera saber el estado de mi paquete, lleva 3 días en camino."},
+        {"speaker": "agente", "text": "Con gusto. ¿Tiene el número de guía?"},
+        {"speaker": "cliente", "text": "Sí, es 1Z999AA10123456784."},
+        {"speaker": "agente", "text": "Su paquete está en la ciudad destino y salió para entrega hoy en la mañana. El estimado es que llegue antes de las 7pm de hoy."},
+        {"speaker": "cliente", "text": "¿Qué pasa si no estoy en casa?"},
+        {"speaker": "agente", "text": "El mensajero intenta entrega 2 veces. Si no hay nadie, puede recogerlo en la sucursal más cercana o programar una nueva entrega desde el sitio de seguimiento."},
+        {"speaker": "cliente", "text": "Perfecto, muchas gracias."}
+      ]
+    },
+    {
+      "id": "LEGIT_049",
+      "label": "legitima",
+      "type": "encuesta",
+      "risk_score": 0.03,
+      "legitimacy_indicators": ["voluntaria", "sin_datos_sensibles", "empresa_reconocida"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy de la Condusef. ¿Tiene 5 minutos para una encuesta sobre experiencias con productos financieros?"},
+        {"speaker": "cliente", "text": "Sí, adelante."},
+        {"speaker": "agente", "text": "¿Utilizó algún servicio bancario en los últimos 3 meses?"},
+        {"speaker": "cliente", "text": "Sí, realicé transferencias y pagos en línea."},
+        {"speaker": "agente", "text": "¿Tuvo algún problema o inconveniente con esos servicios?"},
+        {"speaker": "cliente", "text": "Una vez tardó en procesarse una transferencia."},
+        {"speaker": "agente", "text": "¿Utilizó algún canal para reportarlo?"},
+        {"speaker": "cliente", "text": "Llamé al banco y lo resolvieron."},
+        {"speaker": "agente", "text": "Muy bien. ¿Del 1 al 10 cómo califica la atención que recibió?"}
+      ]
+    },
+    {
+      "id": "LEGIT_050",
+      "label": "legitima",
+      "type": "banco_real",
+      "risk_score": 0.06,
+      "legitimacy_indicators": ["seguimiento_solicitud", "informacion_proceso_real", "sin_datos_sensibles_solicitados"],
+      "dialogue": [
+        {"speaker": "agente", "text": "Hola, soy de Banco del Ejército. Le llamo por su solicitud de cambio de cuenta de nómina."},
+        {"speaker": "cliente", "text": "Sí, la hice la semana pasada."},
+        {"speaker": "agente", "text": "Ya fue procesada. El cambio de domiciliación aplica a partir de la próxima quincena. Su empleador ya fue notificado."},
+        {"speaker": "cliente", "text": "¿Necesito hacer algo más de mi parte?"},
+        {"speaker": "agente", "text": "No, todo está listo. Solo asegúrese de que su cuenta nueva esté activa y con saldo disponible para recibir el depósito. Si hay algún problema en la primera quincena, contáctenos directamente."},
+        {"speaker": "cliente", "text": "Perfecto, muchas gracias."},
+        {"speaker": "agente", "text": "Con gusto. ¿Tiene alguna otra pregunta?"}
+      ]
+    }
+  ]
+}
