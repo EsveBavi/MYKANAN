@@ -6,3 +6,5 @@ dist/
 .env
 .claude/settings.local.json
 backend/datos/
+__pycache__/
+*.pyc
